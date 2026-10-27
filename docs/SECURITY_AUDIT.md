@@ -1,6 +1,6 @@
 # Security audit — local engineering review
 
-This is an application review, not a penetration-test certification or government compliance assessment. No hosted system has been assessed.
+This is an application review, not a penetration-test certification or government compliance assessment. The hosted SQL/RLS layer was subsequently exercised in the dedicated Mumbai project; this does not establish complete hosted Auth/Storage acceptance.
 
 ## Verified locally
 
@@ -27,12 +27,18 @@ This is an application review, not a penetration-test certification or governmen
 
 ## Remaining release risks
 
-- **High operational release blocker:** no hosted Auth/RLS/Storage/session/cross-tenant verification has occurred. Do not ingest real workforce data yet.
+- **High operational release blocker:** hosted SQL/RLS, vector isolation and Storage metadata policies passed, but successful Auth sessions, email flows and actual private file upload/download have not been verified. Do not ingest real workforce data yet.
 - **High integration release blocker:** real government SSO/API authorization, provider privacy approval and hosted AI behavior are absent.
 - **Medium:** worker memory limits cover V8 heaps, not all native allocations; this is not an OS sandbox or malware scanner. Scanned files/transcription are unavailable. Add production parser hardening and file scanning before broader untrusted-file exposure.
 - **Medium:** full membership-administration workflow, account erasure, retention enforcement and auditable privileged role provisioning are not implemented in the UI. Initial trusted operator setup is required.
 - **Medium:** CSP currently permits inline scripts/styles required by this initial Next.js setup. A nonce-based policy and focused XSS review remain future hardening.
-- **Medium:** dependency audit is an advisory check, not exhaustive supply-chain analysis. GitHub actions are pinned to commit SHAs resolved from official release tags; remote CI has not executed. Audit provider calls before production release.
+- **Medium:** dependency audit is an advisory check, not exhaustive supply-chain analysis. GitHub actions are pinned to commit SHAs resolved from official release tags; remote CI passed the recorded release. Audit provider calls before production release.
 - **Medium:** login abuse/credential recovery protections rely partly on Supabase configuration and require hosted verification. No production rate-limit/load proof is claimed.
 
 No critical/high application vulnerability was observed in the exercised local flows. That statement does not clear the operational/integration release blockers above or establish absolute security.
+
+## Hosted review — Mumbai project
+
+All three migrations applied successfully. Supabase security advisor returned zero findings. The rolled-back `tests/sql/hosted-authorization.sql` passed cross-user/tenant reads, role/evidence forgery denial, private answer-key isolation, learner/cross-owner Storage metadata denial, owner vector retrieval, draft publication denial, frozen published grading, answer redaction, cross-user grading denial, invalid options, replay prevention, evidence persistence and atomic AI quotas. These identities and records were rolled back; no synthetic employee was retained. This is not an Auth browser-session test or actual object upload.
+
+Performance advisor identified four duplicate permissive SELECT-policy warnings, 29 missing foreign-key covering-index information notices, one missing primary-key information notice on the private rate log, and expected unused-index notices in the empty project. No load/scalability claim is made. Review before growing the dataset: [RLS policy optimization](https://supabase.com/docs/guides/database/database-linter?lint=0006_multiple_permissive_policies), [foreign-key indexes](https://supabase.com/docs/guides/database/database-linter?lint=0001_unindexed_foreign_keys).

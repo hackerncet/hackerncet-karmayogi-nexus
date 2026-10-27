@@ -1,24 +1,38 @@
 # Current cloud checkpoint — 27 October 2026
 
-Repository: https://github.com/hackerncet/hackerncet-karmayogi-nexus . User supplied this new public repository and selected Render connection `1nc24cs150`. Source and local test evidence are committed. No unrelated repositories or services were changed.
+## Selected resources
 
-Public demonstration: https://karmayogi-nexus.onrender.com/demo/dashboard . Render workspace `My Workspace` (`tea-d3rm5b9r0fns73dpfkfg`), service `srv-dbg8i4vavr4c73dau0rg`, free Node web service in Oregon. First deploy `dep-dbg8i5favr4c73dau2u0` reached live. Health returned HTTP 200 with databaseConfigured=false and aiConfigured=false. Homepage response contained the demo entry and independent-platform disclaimer.
+- Source: https://github.com/hackerncet/hackerncet-karmayogi-nexus (user-supplied public repository).
+- Public synthetic demo: https://karmayogi-nexus.onrender.com/demo/dashboard . This is not a completed workforce production release.
+- Render connection `1nc24cs150`, workspace `My Workspace` / `tea-d3rm5b9r0fns73dpfkfg`, free Node service `srv-dbg8i4vavr4c73dau0rg` in Oregon.
+- Supabase organization `kkfzdupkhmutmukrrkmb` / `1nc24cs150@ncetmail.com's Org`, confirmed by the user. Dedicated project `karmayogi-nexus` / `ffmwbfqyafmnuclsyvry`, Mumbai `ap-south-1`, status `ACTIVE_HEALTHY`.
 
-The complete competency-to-impact browser journey passed against the actual public URL. The test browser used the environment's egress proxy and ignored its browser-specific untrusted interception certificate; independent curl HTTPS requests succeeded with normal certificate verification. This is UI verification, not an external TLS security assessment.
+## Executed after organization confirmation
 
-Initial GitHub CI passed lint, strict types, 40 unit/UI/SQL tests and build, then found a real 320px homepage overflow in the standard Chrome/font environment. The narrow heading/header/decoration layout was corrected. The targeted local reflow check passed. The corrected release and the subsequent integration-status update both passed remote GitHub CI: 40 unit/UI/SQL tests, 20 browser tests, lint, strict types and production build. The final application commit is `22347c1785895426e00742e5d7439447f85d2431`. Render deployment `dep-dbg8lprbc2fs73a03mb0` is live. CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40496429184 . Nine public HTTP smoke checks passed, including the expected 404. Do not report the failed initial CI as passing.
+The project-creation call completed without requiring a nonzero-cost confirmation. The dedicated project's public schema was empty before migrations. All three version-controlled migrations applied successfully. The database has 29 application tables with RLS, eight reference competencies, scoring version `nexus-weighted-evidence-v1`, a private 10 MiB `learning-materials` bucket with MIME restrictions, and pgvector 0.8.2 / 1,536-dimensional retrieval.
 
-## Required next selection
+The project URL and modern publishable key were obtained through the authenticated connector and merged into Render environment variables. No secret or service-role key is used. Render's resulting deployment `dep-dbg9cua9lscs739e3cn0` reached `live` on source commit `b59afcb27fa263fe79a80496d79b21fa436227ad`. Public `/api/health` returned HTTP 200 and `databaseConfigured=true`, `aiConfigured=false`. Configuration health is not successful user-session acceptance.
 
-Supabase MCP is connected. `list_projects` returned zero projects. `list_organizations` returned one organization:
+The rolled-back `tests/sql/hosted-authorization.sql` passed on actual hosted PostgreSQL. It exercised tenant/user isolation, metadata privilege denial, protected keys, owner and cross-owner Storage metadata policies, owner-scoped pgvector retrieval, trusted statistical lab grading, draft approval gate, publication snapshots, answer redaction, option validation, cross-user grading denial, replay prevention, persisted assessment evidence and AI request quotas. This tests database policies and RPCs, not email delivery or actual Storage file bytes. Fixtures were rolled back; a subsequent SQL query confirmed zero retained auth users, organizations and evidence.
 
-- Name: `1nc24cs150@ncetmail.com's Org`
-- ID: `kkfzdupkhmutmukrrkmb`
+Supabase security advisor returned zero findings. Performance advisor reported four overlapping permissive SELECT-policy warnings, 29 missing foreign-key index notices, a missing private-rate-log primary key and expected unused-index notices on the empty project. See SECURITY_AUDIT.md for remediation links and remaining limitations.
 
-The creation tool explicitly says: **Always ask the user which organization to create the project in.** No Supabase project was created and no schema or Auth configuration was changed. Ask the user to confirm this organization for a new `karmayogi-nexus` project (proposed Mumbai / ap-south-1 region). Do not request reconnection or secrets in chat.
+## Deployment verification and regression fix
 
-After organization confirmation, use `create_project` without a confirmation ID initially, per its current instructions. A $0 quote may proceed; a nonzero quote needs the user's explicit agreement. Do not call `confirm_cost` without that agreement. Then wait for readiness, inspect tables, apply reviewed migrations, run advisors and actual hosted permission tests, configure Auth redirects and Render environment variables, and verify live account workflows.
+The earlier release `22347c1785895426e00742e5d7439447f85d2431` passed GitHub CI: 40 unit/UI/SQL and 20 browser tests, lint, strict types and production build. CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40496429184 . The complete synthetic journey also passed on the public URL. That browser used the environment's egress proxy and ignored its browser-specific interception certificate; independent curl HTTPS checks verified normally. This is not an external TLS assessment.
 
-## Remaining product scope
+Initial post-database HTTP probes passed eight of nine checks. The private dashboard returned a streamed HTTP 200 containing a login redirect instead of an HTTP 307. No private record was returned. The proxy now redirects unauthenticated workspace requests before rendering and preserves refreshed cookies. A raw-HTTP regression assertion was added for learner, trainer and admin routes. The integration-status panel now checks deployment configuration instead of displaying a stale hardcoded database-pending label. Final release/deployment and repeated smoke evidence must be recorded after execution; do not relabel the initial failing probe as passed.
 
-The public URL is an explicitly synthetic demonstration, not a completed database-backed production rollout. Real AI, approved iGOT APIs, verified NSSTA/TPAC records and government SSO remain unavailable. All initial local limitations in KNOWN_LIMITATIONS.md still apply except the resolved repository/account/deployment blockers.
+A local Next build first failed because its existing Turbopack cache was invalid. Preserving that cache outside the repository and rebuilding resolved the failure. Static types, lint and all 40 Vitest tests passed. Current changed-source build/browser/CI evidence is tracked in TEST_REPORT.md and evidence files.
+
+## Required external step
+
+Supabase tools have no Auth configuration operation. Site/callback/recovery URLs have not been inspected or changed. Open https://supabase.com/dashboard/project/ffmwbfqyafmnuclsyvry/auth/url-configuration and configure:
+
+1. Site URL: `https://karmayogi-nexus.onrender.com`
+2. Allowed callback: `https://karmayogi-nexus.onrender.com/auth/callback`
+3. Allowed recovery callback: `https://karmayogi-nexus.onrender.com/auth/callback?next=/reset-password`
+
+Keep email confirmation enabled (public Auth settings currently report email enabled, signup enabled, autoconfirm false). Verify successful registration, confirmation, sign-in/out, expiry, recovery and two-identity cross-tenant API behavior afterwards. Default hosted mail restrictions or an approved SMTP provider may need configuration. Do not request private keys in chat, disable verification to hide the blocker, or grant public administrative roles.
+
+Real AI credentials/models, authorized iGOT APIs, verified NSSTA TPAC records and government SSO remain unavailable. Live role/cohort/framework administration, course/path writes, complete Hindi content, retention/erasure, unattended document processing and other limitations in KNOWN_LIMITATIONS.md still require work. The full definition of done is not satisfied.

@@ -1,10 +1,10 @@
 # Known limitations and release blockers
 
-> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
+> **Cloud update — 27 October 2026:** Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the demo is live at https://karmayogi-nexus.onrender.com . Supabase project `ffmwbfqyafmnuclsyvry` is active in Mumbai. Three migrations applied; all 29 application tables have RLS; the private bucket and pgvector are configured. Hosted SQL authorization tests passed and Render has the project URL/publishable key. Successful browser sessions, confirmation/recovery emails and actual file transport remain unverified. Auth URL settings require dashboard configuration because the connector has no Auth configuration operation. Real AI remains unconfigured. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md).
 
 ## External access
 
-No remote GitHub repository, Render account/workspace selection, public preview, production URL or hosted Supabase integration exists. Supabase tools are present but project selection follows the requested first-preview checkpoint. The GitHub connector cannot create repositories. Render has three ambiguous account connections. No unrelated resource was modified.
+GitHub, Render and the selected Mumbai Supabase project are connected. Public synthetic demo and hosted database authorization tests are verified. Auth configuration cannot be edited through the current connector. Successful browser sessions, email confirmation/recovery and actual Storage object transport remain unverified. A completed workforce production release is not claimed. No unrelated resource was modified.
 
 No real AI model/embedding credentials, iGOT API contract, government SSO, actual course-completion feed or verified NSSTA TPAC programme records are configured. Real AI generation/tutoring and authorized external synchronization are not verified. Official SIH portal verification remains blocked by HTTP 403.
 

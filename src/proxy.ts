@@ -46,7 +46,9 @@ export async function proxy(request: NextRequest) {
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
     !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
   )
-    return response;
+    return isWorkspacePath(path)
+      ? NextResponse.redirect(new URL("/login", request.url))
+      : response;
   const db = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
@@ -64,7 +66,13 @@ export async function proxy(request: NextRequest) {
       },
     },
   );
-  await db.auth.getClaims();
+  const { data, error } = await db.auth.getClaims();
+  if (isWorkspacePath(path) && (error || !data?.claims)) {
+    const redirect = NextResponse.redirect(new URL("/login", request.url));
+    response.cookies.getAll().forEach((cookie) => redirect.cookies.set(cookie));
+    redirect.headers.set("Cache-Control", "private, no-store");
+    return redirect;
+  }
   return response;
 }
 export const config = {

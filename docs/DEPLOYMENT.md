@@ -1,16 +1,10 @@
 # Deployment — Render replaces Vercel
 
-> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
+> **Cloud update — 27 October 2026:** Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the demo is live at https://karmayogi-nexus.onrender.com . Supabase project `ffmwbfqyafmnuclsyvry` is active in Mumbai. Three migrations applied; all 29 application tables have RLS; the private bucket and pgvector are configured. Hosted SQL authorization tests passed and Render has the project URL/publishable key. Successful browser sessions, confirmation/recovery emails and actual file transport remain unverified. Auth URL settings require dashboard configuration because the connector has no Auth configuration operation. Real AI remains unconfigured. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md).
 
-No remote repository, Render preview or production deployment exists at this checkpoint. No URLs are invented.
+## Selected resources
 
-## Access blockers
-
-GitHub login is `hackerncet`. Nine accessible repositories were inspected; none is relevant. The GitHub connector exposes file/tree/commit/branch operations but no repository creation. Do not reuse or overwrite an unrelated repository. Smallest action: create private `hackerncet/karmayogi-nexus` initialized with README and grant the connector access.
-
-Render has three account connections: **Render**, **Primary**, **1nc24cs150**. Tool instructions require the intended account to be selected when multiple accounts can satisfy a write. No workspace was queried or switched without that choice. After account selection, list workspaces and confirm the intended workspace before service creation, following the [Render skill](skill://plugin_asdk_app_6a624c56bfe081918f7544f7d58f6faf/render-deploy/SKILL.md).
-
-Supabase tools are present. The user requires the first deployment before cloud-database selection. Since preview publication is blocked, no project enumeration, project creation, cloud migration or unrelated-data operation has been attempted. Do not ask the user to reconnect Supabase unnecessarily.
+Repository: `hackerncet/hackerncet-karmayogi-nexus`; Render connection `1nc24cs150`, workspace `tea-d3rm5b9r0fns73dpfkfg`, service `srv-dbg8i4vavr4c73dau0rg`; Supabase organization `kkfzdupkhmutmukrrkmb`, project `ffmwbfqyafmnuclsyvry`, Mumbai `ap-south-1`. The user explicitly selected and confirmed these resources. No unrelated resources were changed.
 
 ## First preview
 
@@ -31,6 +25,12 @@ Validate signup, email confirmation, login/logout, recovery, expiration, members
 
 ## Release gate
 
-Public **synthetic demo preview** may be deployed once repository/account access is resolved. A real workforce production rollout is blocked until known limitations, hosted tests, retention/privacy decisions, full live workflows and configured-AI validation are resolved. Do not label a demo URL as verified production completion.
+Public **synthetic demo preview** is deployed. A real workforce production rollout is blocked until known limitations, hosted tests, retention/privacy decisions, full live workflows and configured-AI validation are resolved. Do not label a demo URL as verified production completion.
 
 No continuous extraction worker is deployed: owners explicitly process/retry durable jobs through the trainer UI. Large transcription/OCR or unrestricted code execution requires a separate approved adapter; none is silently provisioned.
+
+## Required Auth dashboard configuration
+
+The connected Supabase tools expose project/schema/key operations but no Auth URL configuration controls. Open https://supabase.com/dashboard/project/ffmwbfqyafmnuclsyvry/auth/url-configuration . Set Site URL to `https://karmayogi-nexus.onrender.com`. Allow the exact redirect `https://karmayogi-nexus.onrender.com/auth/callback` and recovery redirect `https://karmayogi-nexus.onrender.com/auth/callback?next=/reset-password`. Keep email confirmation enabled. These settings have not been inspected or changed through the connector. Then verify registration, confirmation, login/logout, expiry and recovery with authorized test identities. Default hosted email delivery may require project-team addresses or an approved SMTP configuration; no email delivery is claimed. See [current Supabase redirect documentation](https://supabase.com/docs/guides/auth/redirect-urls).
+
+Reproduce negative HTTP checks with `NEXUS_CLOUD_CONFIG=/secure/path/public-config.json NEXUS_ORIGIN=https://karmayogi-nexus.onrender.com python scripts/cloud-smoke.py`; the config contains only `url` and a publishable `key`. The script never creates accounts or sends email. Run `tests/sql/hosted-authorization.sql` through the trusted SQL connection: it rolls back synthetic fixtures and tests hosted policies/RPCs.

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Info,
   Users,
@@ -502,6 +502,21 @@ export function Simulator() {
   );
 }
 export function IntegrationStatus() {
+  const [databaseConfigured, setDatabaseConfigured] = useState<
+    boolean | null | undefined
+  >(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("/api/health", { signal: controller.signal, cache: "no-store" })
+      .then((response) => (response.ok ? response.json() : Promise.reject()))
+      .then((health) =>
+        setDatabaseConfigured(health.databaseConfigured === true),
+      )
+      .catch(() => {
+        if (!controller.signal.aborted) setDatabaseConfigured(undefined);
+      });
+    return () => controller.abort();
+  }, []);
   return (
     <div className="status-grid">
       {[
@@ -522,8 +537,17 @@ export function IntegrationStatus() {
         },
         {
           title: "Supabase & Render",
-          status: "DEMO LIVE / DATABASE PENDING",
-          text: "The public demonstration is deployed on Render. Supabase authentication and private learning records await a selected project. Real AI remains unconfigured.",
+          status:
+            databaseConfigured === undefined
+              ? "STATUS UNAVAILABLE"
+              : databaseConfigured === null
+                ? "CHECKING CONFIGURATION"
+                : databaseConfigured
+                  ? "DATABASE CONFIGURED"
+                  : "DEMO LIVE / DATABASE PENDING",
+          text: databaseConfigured
+            ? "Supabase is configured for private accounts and learning records. Public demonstration activity stays isolated in this browser. Email confirmation and recovery depend on the project's Auth settings. Real AI remains unconfigured."
+            : "The public demonstration is deployed on Render. This status checks deployment configuration; it does not establish successful authentication or database connectivity. Real AI remains unconfigured.",
         },
       ].map((x) => (
         <Card key={x.title}>

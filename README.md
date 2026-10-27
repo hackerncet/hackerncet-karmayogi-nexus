@@ -6,7 +6,7 @@ Independent SIH26101 demonstration for statistical capacity building. Not an off
 
 ## Current checkpoint
 
-Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase lists no projects; creation awaits the required organization choice. Database and real AI functionality remain unconnected. The deployed release passed GitHub CI (40 unit/UI/SQL + 20 browser tests). See docs/CLOUD_CHECKPOINT_2026-10-27.md.
+Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase project `ffmwbfqyafmnuclsyvry` is active in Mumbai, with three migrations applied, RLS on all 29 application tables, private Storage and pgvector. Hosted SQL authorization tests passed and Render environment settings are connected. Successful email/session/file workflows still require acceptance testing; Auth redirect URLs need dashboard configuration. Real AI remains unconfigured. The deployed release passed GitHub CI (40 unit/UI/SQL + 20 browser tests). See docs/CLOUD_CHECKPOINT_2026-10-27.md.
 
 - 40 local Vitest tests, including executed PostgreSQL RLS/RPC probes, pass at this checkpoint.
 - 20 Playwright tests pass, including the complete demonstration journey, axe checks, dark/Hindi navigation, mobile reflow and access guards.
@@ -52,7 +52,7 @@ The demo fixture seed is application-only. Migrations seed reference competencie
 
 Deploy a **Node web service**, not a static site. Build: `npm ci --include=dev && npm run build`. Start: `npm start`. The start script binds `0.0.0.0` and Render’s `PORT`. Health: `/api/health`.
 
-Repository: `hackerncet/hackerncet-karmayogi-nexus` (public, supplied by the user). Render: `1nc24cs150` / `My Workspace`, free Node service in Oregon. Supabase currently lists no projects; organization confirmation is required before creating a dedicated project. Never include keys in chat or commits.
+Repository: `hackerncet/hackerncet-karmayogi-nexus` (public, supplied by the user). Render: `1nc24cs150` / `My Workspace`, free Node service in Oregon. Supabase project `ffmwbfqyafmnuclsyvry` is connected in Mumbai. Auth URL configuration and successful account-flow acceptance remain pending. Never include keys in chat or commits.
 
 ## AI configuration
 

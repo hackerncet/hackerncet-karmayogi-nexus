@@ -1,59 +1,65 @@
-# Evidence-backed delivery checkpoint
-
-> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
-
-**Result: locally tested application and isolated synthetic demonstration; cloud delivery blocked. The full definition of done is not satisfied.**
+# Evidence-backed alignment report — current checkpoint
 
 ## A. Problem alignment
 
-Provisional SIH26101 / MoSPI DIID alignment uses the unofficial community archive because the official portal returned 403. Required priority areas are traced in `REQUIREMENTS_MATRIX.md`. No official verification or endorsement is claimed.
+SIH26101 / MoSPI DIID alignment uses the community archive provisionally because the official SIH portal returned HTTP 403. The mandatory competency/gap/pathway/assessment/iGOT/NSSTA/tutor/analytics workflows are mapped in REQUIREMENTS_MATRIX.md. No government verification or endorsement is claimed.
 
-## B. Implemented features
+## B–C. Implemented features and innovation
 
-Local demonstration: professional profile, six-question diagnostics, deterministic evidence/gap scoring, explainable ranked recommendations, iGOT/NSSTA synthetic catalogues, course search/filter/pagination, browser-local paths/completion, four statistical missions, unofficial passport/export and evidence timeline, trainer upload/review/approval/publication, learner quiz, prewritten tutor with clear-chat, synthetic workforce aggregates, three-case simulator and English/Hindi navigation with dark/mobile layouts.
+The public synthetic journey includes profile, baseline diagnostic, deterministic gaps/confidence, explained iGOT/NSSTA demo recommendations, browser-local paths, four practical missions, trainer prewritten question review/approval/publication, learner quiz, evidence passport/history/export, synthetic workforce analytics and a three-case assumption simulator. English/Hindi navigation, dark theme, accessible tables and responsive layouts are tested; full translated content is incomplete.
 
-Backend source: caller-scoped SSR Auth, role checks, RLS, private Storage policies, bounded extraction jobs/workers, source/schema-validated provider adapter, document retrieval, quota RPCs, immutable assessment publication/attempts, SQL grading, live lab persistence, chat persistence, aggregate suppression and audit triggers. These are not hosted end-to-end verified features.
+The competency-to-impact lifecycle assembles role expectations, evidence, learning, practice, later assessment and organizational insight. Existing iGOT competency mapping, recommendations and AI tutoring are acknowledged; no exclusive novelty claim is made.
 
-## C. Innovations demonstrated
+Backend source includes caller-scoped Supabase SSR, role checks, RLS, private Storage, durable document processing records and bounded extraction, structured/source-validated AI adapters, scoped retrieval/quotas, protected answer snapshots, trusted SQL grading, lab persistence and aggregate suppression. Successful browser-account and real-provider acceptance remain separate gates.
 
-The assembled competency-to-impact lifecycle, statistical mission evidence, transparent passport and assumption-based workforce scenarios. iGOT already has competency mapping, course recommendations and AI tutors; no exclusive novelty claim is made.
+## D–F. URLs
 
-## D–F. Repository and cloud URLs
+- Source: https://github.com/hackerncet/hackerncet-karmayogi-nexus
+- Render public demo: https://karmayogi-nexus.onrender.com/demo/dashboard
+- Prior passing cloud CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40496429184
+- Completed workforce production URL: **not established**. The public demo is not relabeled production completion.
 
-- GitHub repository: **not created**. Login `hackerncet`; connector has no repository-creation operation; existing unrelated repositories were preserved.
-- Render preview: **not deployed**. No repository source and three account choices remain unresolved.
-- Production URL: **none**. No test/preview URL is mislabeled production.
+## G–H. Supabase and authorization
 
-## G–H. Supabase, authentication and authorization
+User-confirmed project `ffmwbfqyafmnuclsyvry` is active in Mumbai. All three migrations applied, 29 application tables have RLS, private Storage and pgvector 0.8.2 are configured. Render received URL and publishable key through authenticated tools; no application service-role key exists.
 
-Supabase tools are discoverable; no cloud project was selected, inspected or migrated because the requested early-preview checkpoint is blocked. Local migration/RLS/RPC tests pass in PGlite with emulated Auth/Storage metadata. Hosted signup, verification email, password recovery, expired-session handling and actual Storage remain unverified. Learners cannot assign privileges through profiles or metadata.
+Actual hosted SQL tests passed cross-user/tenant denial, metadata escalation denial, grade forgery denial, private keys, Storage metadata namespaces, vector retrieval scope, approval gates, frozen answer snapshots, answer redaction, trusted lab/assessment grading, replay rejection, evidence persistence and AI quotas. All synthetic fixtures were rolled back and zero test users/organizations/evidence remained. This does not verify real Auth sessions or file transport. Email Auth and confirmation are enabled; successful registration/recovery and callback URL configuration remain pending because the connector lacks Auth settings controls.
 
-## I–K. External integrations and AI
+## I–K. External integrations
 
-iGOT: deterministic demo provider works; authorized provider fails closed without documentation/credentials. NSSTA: synthetic catalogue works; no verified TPAC programme import or approval is claimed. AI: adapter/validation/failure tests pass; no live key/model configured or real generation/tutoring accepted. Demo text is explicitly prewritten. Government SSO is unavailable.
+| Integration | Status |
+|---|---|
+| iGOT | Synthetic demo adapter; live adapter fails closed without approved contract/credentials |
+| NSSTA / TPAC | Synthetic programme catalogue; no official dates/approval/import claimed |
+| AI / embeddings | Provider abstraction and validation implemented/tested locally; no real key/model configured |
+| Government SSO | Unavailable |
 
-## L–N. Test, accessibility and security results
+## L–N. Tests, accessibility and security
 
-40 local unit/UI/SQL tests and 20 browser tests passed at the recorded checkpoint; strict TypeScript, ESLint and production build passed. Dependency audit returned zero known vulnerabilities. Ten page axe checks plus Hindi/dark scan reported no violations; desktop/mobile layouts were inspected. No formal WCAG, government-security or production-scalability certification is asserted. See detailed test/audit reports for exact coverage and limits.
+The recorded application release passed 40 unit/UI/SQL and 20 Playwright tests, lint, strict types and production build in GitHub CI. The complete synthetic browser journey also passed on the public URL. Hosted database tests subsequently passed as described above. Supabase security advisor returned zero findings; performance-policy/index notices remain documented.
 
-## O. Remaining limitations by status
+Ten page axe scans plus Hindi/dark state reported no violations in the recorded browser suite. Full screen-reader/expert accessibility review is pending. Dependency audit reported zero known vulnerabilities at the recorded snapshot. These results establish neither complete WCAG conformance, government compliance, absolute security nor production scalability.
+
+Initial cloud HTTP checks found a streamed-redirect status issue; a proxy fix and raw-status regression were added. See TEST_REPORT.md and current cloud checkpoint for final release-specific evidence, rather than treating historical checks as proof of later source.
+
+## O. Honest status
 
 | Status | Scope |
 |---|---|
-| Verified working locally | Deterministic engines, lab answer keys, exercised SQL authorization/RPCs and complete demo journey |
-| Demo simulation | Officer/cohort records, course/catalogue records, path enrolment/completion, prewritten quiz/tutor examples, workforce scenario inputs |
-| Partially implemented | Hosted-capable Auth/Storage/AI services, configurable frameworks, item analytics, timed UI, role/admin management, unattended document processing |
-| Blocked by external access | Repository creation, Render account/workspace choice, hosted Supabase selection/verification, AI keys/models, iGOT contract, verified NSSTA programme data and government SSO |
-| Not implemented | Full adaptive testing, complete Hindi content, retention/erasure tools, cohort management, continuous job runner, video transcription/OCR, formal compliance and load validation |
+| Verified working | Public synthetic demo, recorded remote CI, Mumbai migrations, hosted SQL authorization/grading/vector retrieval, Render configuration |
+| Demo simulation | Officer/cohort, course/programme records, enrolments/completions, prewritten questions/tutor, workforce scenarios |
+| Partially implemented | Full live framework/role/cohort management, paths/catalogue imports, timed/adaptive UI, question analytics, retention, unattended processing |
+| Blocked by external access | Auth settings via dashboard and authorized email/session tests; AI model/key; approved government APIs, SSO and verified TPAC data |
+| Not implemented | Complete adaptive model, full Hindi content, OCR/video transcription, erasure tooling, formal compliance and load validation |
 
 ## P. Walkthrough
 
-Follow `SIH_DEMO_SCRIPT.md`: baseline → gaps → recommendations across both providers → lesson → practical mission → trainer source/review/publication → learner quiz → evidence comparison → workforce analytics → impact assumptions. Present demo/observed/simulated provenance explicitly throughout.
+Open the public demo and follow SIH_DEMO_SCRIPT.md: baseline → gaps → both training providers → lesson → practice → trainer source/review/publication → learner quiz → progress → workforce distribution → impact assumptions. All simulation and provenance labels must remain visible.
 
 ## Q. Next engineering priorities
 
-1. Resolve repository and Render account/workspace selection; publish and verify the isolated demo preview.
-2. Select a dedicated Supabase project after that preview, apply reviewed migrations, configure Auth/Storage/environment and execute hosted cross-tenant tests.
-3. Configure an approved AI provider and validate real document-to-question-to-published-assessment and source-grounded tutor flows.
-4. Complete live catalogue/path/TPAC import, framework/role/cohort administration, adaptive/timed assessment UI and retention tooling.
-5. Obtain authorized government API/SSO contracts; run expert statistical, accessibility, hostile-document and load validation before real workforce production use.
+1. Configure Auth Site URL and callback/recovery URLs in the selected project's dashboard; execute successful account, expired-session and private file transport acceptance with authorized identities.
+2. Add trusted organizational role provisioning and complete live baseline, catalogue/path, framework and cohort administration.
+3. Configure an approved AI provider and execute real source-to-draft-to-reviewed-assessment and cited-tutor tests.
+4. Implement verified TPAC import, retention/erasure and unattended job recovery; complete Hindi translation and assessment validation.
+5. Obtain authorized iGOT/SSO contracts and conduct expert statistical, accessibility, hostile-file, load and operational reviews before real workforce deployment.

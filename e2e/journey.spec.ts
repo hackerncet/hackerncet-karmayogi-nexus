@@ -188,6 +188,9 @@ test("protected routes require sign-in and mutations reject cross-origin request
   request,
 }) => {
   for (const p of ["/dashboard", "/trainer/materials", "/admin/users"]) {
+    const raw = await request.get(p, { maxRedirects: 0 });
+    expect(raw.status()).toBe(307);
+    expect(raw.headers().location).toMatch(/\/login$/);
     await page.goto(p);
     await expect(page).toHaveURL(/\/login$/);
   }

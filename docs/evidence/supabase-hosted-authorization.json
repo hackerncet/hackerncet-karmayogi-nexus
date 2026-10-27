@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-27",
+  "project_id": "ffmwbfqyafmnuclsyvry",
+  "region": "ap-south-1",
+  "migration_result": "All three migrations applied successfully",
+  "application_tables": 29,
+  "rls_enabled_tables": 29,
+  "seeded_reference_competencies": 8,
+  "pgvector_version": "0.8.2",
+  "private_bucket": "learning-materials",
+  "test_source": "tests/sql/hosted-authorization.sql",
+  "result": "PASS: hosted isolation, storage metadata policies, vector retrieval, trusted grading, publication snapshot, answer redaction, replay prevention and AI quota. All synthetic changes rolled back.",
+  "retained_test_auth_users": 0,
+  "retained_test_organizations": 0,
+  "retained_test_evidence": 0,
+  "security_advisor_findings": 0,
+  "limitations": [
+    "SQL runs with actual authenticated and anon roles and synthetic JWT claim settings, not real Auth browser sessions.",
+    "Storage metadata policies exercised inside rollback; actual object byte upload/download not verified.",
+    "Successful email confirmation, recovery and browser login remain unverified.",
+    "Performance notices documented separately; no scalability certification."
+  ]
+}
