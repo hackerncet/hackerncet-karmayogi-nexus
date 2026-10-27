@@ -1,0 +1,77 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> karmayogi-nexus@0.1.0 check
+> npm run lint && npm run typecheck && npm test && npm run build
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> karmayogi-nexus@0.1.0 lint
+> eslint . --max-warnings 0
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> karmayogi-nexus@0.1.0 typecheck
+> tsc --noEmit
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> karmayogi-nexus@0.1.0 test
+> node scripts/build-workers.mjs && vitest run
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.5 /workspace/scratch/872db9573ddb/karmayogi-nexus
+
+
+ Test Files  4 passed (4)
+      Tests  40 passed (40)
+   Start at  19:57:19
+   Duration  10.49s (tests 71%, environment 15%, import 11%, transform 3%)
+
+    Isolate  4 workers spawned · ~624ms startup each (spawn + environment, per file)
+             at least ~1.87s faster with isolate: false — reuses workers across files instead of one per file
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> karmayogi-nexus@0.1.0 build
+> node scripts/build-workers.mjs && next build
+
+▲ Next.js 16.4.3 (Turbopack)
+✓ Running next.config.ts took 53ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 2.3s
+  Running TypeScript ...
+  Finished TypeScript in 4.4s ...
+  Collecting page data using 8 workers ...
+  Generating static pages using 8 workers (0/14) ...
+  Generating static pages using 8 workers (3/14)
+  Generating static pages using 8 workers (6/14)
+  Generating static pages using 8 workers (10/14)
+✓ Generating static pages using 8 workers (14/14) in 536ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /[...slug]
+├ ƒ /api/assessments
+├ ƒ /api/auth
+├ ƒ /api/health
+├ ƒ /api/labs
+├ ƒ /api/materials
+├ ƒ /api/materials/process
+├ ƒ /api/questions
+├ ƒ /api/tutor
+├ ƒ /api/workspace
+├ ƒ /auth/callback
+├ ƒ /demo/[[...slug]]
+└ ○ /not-found
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand

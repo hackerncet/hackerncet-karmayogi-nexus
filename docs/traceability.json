@@ -1,0 +1,244 @@
+[
+  {
+    "id": "R01",
+    "route": "/diagnostic; /assessments/[id]",
+    "files": [
+      "src/lib/engine.ts",
+      "src/components/assessment-screen.tsx",
+      "src/app/api/assessments/route.ts"
+    ],
+    "tables": [
+      "competency_evidence",
+      "assessment_attempts"
+    ],
+    "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Deterministic demo and SQL grading tested; real AI competency inference and hosted acceptance unavailable."
+  },
+  {
+    "id": "R02",
+    "route": "/skill-gaps",
+    "files": [
+      "src/lib/engine.ts",
+      "src/components/competency-screens.tsx"
+    ],
+    "tables": [
+      "competency_evidence",
+      "role_competency_requirements",
+      "score_calculation_versions"
+    ],
+    "tests": "tests/engine.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Reference survey-analyst targets; live custom framework editor/target binding pending."
+  },
+  {
+    "id": "R03",
+    "route": "/recommendations; /learning-paths",
+    "files": [
+      "src/lib/engine.ts",
+      "src/components/learning-screens.tsx"
+    ],
+    "tables": [
+      "courses",
+      "learning_paths",
+      "enrolments"
+    ],
+    "tests": "tests/engine.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Demo enrolment/completion/path works. Live path mutations and career-goal ranking incomplete."
+  },
+  {
+    "id": "R04",
+    "route": "/course-catalog; /admin/integrations",
+    "files": [
+      "src/services/integrations.ts",
+      "src/components/learning-screens.tsx"
+    ],
+    "tables": [
+      "integration_configs",
+      "integration_sync_runs"
+    ],
+    "tests": "tests/ai-documents.test.ts",
+    "status": "Blocked",
+    "limitations": "Demo adapter tested. No authorized API contract/credentials or live sync."
+  },
+  {
+    "id": "R05",
+    "route": "/admin/training-programmes",
+    "files": [
+      "src/lib/fixtures.ts",
+      "src/components/admin-screens.tsx"
+    ],
+    "tables": [
+      "training_programmes"
+    ],
+    "tests": "e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Dedicated synthetic catalogue; verified programme import/TPAC evidence not available."
+  },
+  {
+    "id": "R06",
+    "route": "/trainer/materials; /trainer/question-bank; /trainer/assessment-builder",
+    "files": [
+      "src/services/documents.ts",
+      "src/services/ai.ts",
+      "src/services/isolated-document.ts",
+      "src/app/api/questions/route.ts",
+      "src/components/trainer-screens.tsx"
+    ],
+    "tables": [
+      "learning_materials",
+      "document_chunks",
+      "document_processing_jobs",
+      "question_bank",
+      "question_versions"
+    ],
+    "tests": "tests/ai-documents.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Demo uses prewritten examples. Real configured AI workflow and hosted storage not verified; video needs transcript."
+  },
+  {
+    "id": "R07",
+    "route": "/assessments/[id]",
+    "files": [
+      "src/app/api/assessments/route.ts",
+      "supabase/migrations/20261027102447_nexus_foundation.sql"
+    ],
+    "tables": [
+      "assessments",
+      "assessment_attempts",
+      "private.assessment_keys",
+      "private.attempt_keys"
+    ],
+    "tests": "tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Server grading/deadlines/limits tested locally. Full adaptive selection and delayed-feedback policy UI absent."
+  },
+  {
+    "id": "R08",
+    "route": "/ai-tutor",
+    "files": [
+      "src/services/ai.ts",
+      "src/app/api/tutor/route.ts",
+      "src/components/tutor-screen.tsx"
+    ],
+    "tables": [
+      "document_chunks",
+      "chat_messages",
+      "private.ai_request_log"
+    ],
+    "tests": "tests/ai-documents.test.ts; e2e/journey.spec.ts",
+    "status": "Implemented",
+    "limitations": "Prewritten demo tested; real provider and hosted tenant retrieval not verified. Multi-chat history prompting incomplete."
+  },
+  {
+    "id": "R09",
+    "route": "/dashboard; /my-progress; /competencies",
+    "files": [
+      "src/components/overview.tsx",
+      "src/components/competency-screens.tsx"
+    ],
+    "tables": [
+      "competency_evidence",
+      "lab_submissions"
+    ],
+    "tests": "tests/engine.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Unofficial JSON progress export and evidence timeline; no official certificate."
+  },
+  {
+    "id": "R10",
+    "route": "/admin/analytics; /admin/impact-simulator",
+    "files": [
+      "src/components/admin-screens.tsx",
+      "src/lib/engine.ts"
+    ],
+    "tables": [
+      "workforce_scenarios",
+      "competency_evidence",
+      "memberships"
+    ],
+    "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Synthetic workforce demo and formula simulation tested; no hosted admin dataset or forecast validation."
+  },
+  {
+    "id": "R11",
+    "route": "/login; /signup; protected routes",
+    "files": [
+      "src/lib/supabase/server.ts",
+      "src/app/api/auth/route.ts",
+      "src/proxy.ts",
+      "supabase/migrations/20261027102447_nexus_foundation.sql",
+      "supabase/migrations/20261027102656_nexus_private_storage_and_vectors.sql"
+    ],
+    "tables": [
+      "profiles",
+      "memberships",
+      "storage.objects",
+      "all public RLS tables"
+    ],
+    "tests": "tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Local RLS/guards verified. Hosted Auth/Storage/recovery/expiry tests blocked by cloud checkpoint; live role provisioning UI absent."
+  },
+  {
+    "id": "R12",
+    "route": "/; /api/health",
+    "files": [
+      "next.config.ts",
+      ".github/workflows/ci.yml",
+      "docs/DEPLOYMENT.md"
+    ],
+    "tables": [
+      "integration_configs"
+    ],
+    "tests": "e2e/journey.spec.ts",
+    "status": "Blocked",
+    "limitations": "Local build/test pass. GitHub repository creation missing; Render account/workspace selection needed. CI authored, not remotely run."
+  },
+  {
+    "id": "R13",
+    "route": "All major demonstrated routes",
+    "files": [
+      "src/components/preferences.tsx",
+      "src/components/ui/primitives.tsx",
+      "src/app/globals.css"
+    ],
+    "tables": [
+      "profiles"
+    ],
+    "tests": "tests/ui.test.tsx; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "10 page axe scans plus dark/Hindi state; 320/640px checks. Full translation, screen-reader and real zoom audits incomplete."
+  },
+  {
+    "id": "R14",
+    "route": "/practice-labs/[id]; /my-progress",
+    "files": [
+      "src/lib/labs.ts",
+      "src/components/lab-screens.tsx",
+      "src/app/api/labs/route.ts"
+    ],
+    "tables": [
+      "lab_submissions",
+      "competency_evidence"
+    ],
+    "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+    "status": "Tested",
+    "limitations": "Four deterministic synthetic missions; no unrestricted SQL/code execution. Hosted evidence workflow not verified."
+  },
+  {
+    "id": "R15",
+    "route": "Government SSO",
+    "files": [
+      "docs/DEPLOYMENT.md"
+    ],
+    "tables": [
+      "memberships"
+    ],
+    "tests": "No authorized IdP test possible",
+    "status": "Blocked",
+    "limitations": "Government identity provider, configuration and approvals absent."
+  }
+]
