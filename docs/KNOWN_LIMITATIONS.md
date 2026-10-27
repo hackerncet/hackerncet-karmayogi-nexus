@@ -1,5 +1,7 @@
 # Known limitations and release blockers
 
+> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
+
 ## External access
 
 No remote GitHub repository, Render account/workspace selection, public preview, production URL or hosted Supabase integration exists. Supabase tools are present but project selection follows the requested first-preview checkpoint. The GitHub connector cannot create repositories. Render has three ambiguous account connections. No unrelated resource was modified.

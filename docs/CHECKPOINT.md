@@ -1,5 +1,7 @@
 # Exact continuation checkpoint
 
+> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
+
 Local root: `karmayogi-nexus`. Git has `main` and `feature/competency-to-impact`; a requirements-first commit records the matrix. Source and reports are committed locally before packaging. No remote is configured. The source archive excludes node_modules, build output, browser screenshots and secrets; it includes the local Git history bundle.
 
 ## Already done — do not restart

@@ -522,8 +522,8 @@ export function IntegrationStatus() {
         },
         {
           title: "Supabase & Render",
-          status: "CLOUD VERIFICATION PENDING",
-          text: "Source includes migrations, Auth integration and Render instructions. Cloud resources have not been selected, migrated or deployed.",
+          status: "DEMO LIVE / DATABASE PENDING",
+          text: "The public demonstration is deployed on Render. Supabase authentication and private learning records await a selected project. Real AI remains unconfigured.",
         },
       ].map((x) => (
         <Card key={x.title}>

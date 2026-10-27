@@ -6,7 +6,7 @@ Independent SIH26101 demonstration for statistical capacity building. Not an off
 
 ## Current checkpoint
 
-Functional local Next.js application with a complete, isolated browser demonstration. Supabase migrations and authenticated backend paths are implemented; cloud integration is **not verified**. No GitHub repository or Render resource has been created. No real AI provider or government API has been called.
+Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase lists no projects; creation awaits the required organization choice. Database and real AI functionality remain unconnected. See docs/CLOUD_CHECKPOINT_2026-10-27.md.
 
 - 40 local Vitest tests, including executed PostgreSQL RLS/RPC probes, pass at this checkpoint.
 - 20 Playwright tests pass, including the complete demonstration journey, axe checks, dark/Hindi navigation, mobile reflow and access guards.
@@ -52,7 +52,7 @@ The demo fixture seed is application-only. Migrations seed reference competencie
 
 Deploy a **Node web service**, not a static site. Build: `npm ci --include=dev && npm run build`. Start: `npm start`. The start script binds `0.0.0.0` and Render’s `PORT`. Health: `/api/health`.
 
-The GitHub connection is `hackerncet`. No relevant repository exists and the connector lacks repository creation. Create a private `karmayogi-nexus` repository with an initial README, then authorize the connector to access it. Render has three connections (`Render`, `Primary`, `1nc24cs150`); the intended account/workspace must be selected before cloud creation. Never include keys in chat or commits.
+Repository: `hackerncet/hackerncet-karmayogi-nexus` (public, supplied by the user). Render: `1nc24cs150` / `My Workspace`, free Node service in Oregon. Supabase currently lists no projects; organization confirmation is required before creating a dedicated project. Never include keys in chat or commits.
 
 ## AI configuration
 

@@ -1,5 +1,7 @@
 # Test execution report
 
+> **Cloud update — 27 October 2026:** Source is now published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Render account `1nc24cs150`, workspace `My Workspace`, free Node service. Supabase tools list no projects and one organization (`1nc24cs150@ncetmail.com's Org`). Project creation awaits the organization choice required by the Supabase tool. No database or AI connection is claimed. See [current cloud checkpoint](CLOUD_CHECKPOINT_2026-10-27.md). Earlier repository/account blockers below are historical and superseded.
+
 Checkpoint date: 27 October 2026. Environment: Linux container, Node 24.22.1, npm 11.9.0; application Next.js 16.4.3 / React 19.3.1 / TypeScript 6.0.3. Local tests only.
 
 | Check | Actual result | Limits |
