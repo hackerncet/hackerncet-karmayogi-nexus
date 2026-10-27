@@ -1,0 +1,5 @@
+Actual GitHub job log excerpt: runtime d50cd5f1378a944899859a03443f47233beb934b, run 40534394203, job 122295562776.
+2026-10-27T15:47:47.8971028Z       Tests  40 passed (40)
+2026-10-27T15:47:57.5425080Z ✓ Compiled successfully in 8.9s
+2026-10-27T15:48:03.9918013Z   Finished TypeScript in 6.4s ...
+2026-10-27T15:48:57.7521576Z   26 passed (30.1s)

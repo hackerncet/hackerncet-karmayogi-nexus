@@ -42,3 +42,7 @@ Real AI credentials/models, authorized iGOT APIs, verified NSSTA TPAC records an
 Runtime commit `5e1f2d05a815b58f32e20774745bddafee437a9d` deployed live as `dep-dbg9ivi9lscs7394jcb0`. GitHub CI run https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40504357255 succeeded; logs confirm 40 Vitest and 20 browser tests (24.0 seconds for remote browser suite). All nine repeated configuration/negative HTTP probes passed, including HTTP 307 from the signed-out dashboard, anonymous Data API/RPC denial, cross-origin denial and incorrect-credential rejection by live Auth. See `evidence/supabase-cloud-http.json`. This verifies routing and failure handling, not successful account/email acceptance.
 
 The deployed-browser checks also passed: configuration status panel, enabled configured signup form, raw 307 guards for learner/trainer/admin, and the complete synthetic competency-to-impact journey. Two tests passed in 1.2 minutes (32.5s and 35.5s). No actual user signup/email was performed. The interception-certificate test caveat above applies.
+
+## Latest interface release
+
+The redesigned interface is deployed on runtime `d50cd5f1378a944899859a03443f47233beb934b`, Render `dep-dbgcesijnfac739vh55g` (live). GitHub CI https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40534394203 passed 40 unit/UI/SQL and 26 browser tests, lint, strict types and production build. Read INTERFACE_REDESIGN.md for scope and deployment-specific interaction evidence. The Auth, real AI and external integration gates above remain unchanged.

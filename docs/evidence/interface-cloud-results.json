@@ -1,0 +1,88 @@
+{
+  "runtime_commit": "d50cd5f1378a944899859a03443f47233beb934b",
+  "origin": "https://karmayogi-nexus.onrender.com",
+  "scope": "Six deployed UI interaction/keyboard checks; actual Playwright reporter summary with environment/configuration/attachments omitted.",
+  "stats": {
+    "startTime": "2026-10-27T15:49:41.979Z",
+    "duration": 85478.967,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "homepage preview switches perspective and opens the chosen demonstration",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 11350,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "competency explorer filters, inspects evidence and changes display",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 14023,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "workspace command search is keyboard accessible and routes to the matching competency",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 14908,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "course discovery sorts, filters, compares and switches layout",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 12346,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "demo perspective switcher changes workspace without granting live privileges",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 18696,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile navigation traps keyboard focus, dismisses with Escape and restores the trigger",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 13460,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "transport_caveat": "Browser used the environment proxy and ignored its interception certificate; independent curl HTTPS health check verified normally. Not a TLS security audit."
+}

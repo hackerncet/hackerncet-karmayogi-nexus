@@ -47,7 +47,7 @@
         "learning_paths",
         "enrolments"
       ],
-      "tests": "tests/engine.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/engine.test.ts; e2e/journey.spec.ts; e2e/interface.spec.ts",
       "status": "Tested",
       "limitations": "Demo enrolment/completion/path works. Live path mutations and career-goal ranking incomplete.",
       "missingFiles": []
@@ -146,13 +146,14 @@
       "route": "/dashboard; /my-progress; /competencies",
       "files": [
         "src/components/overview.tsx",
-        "src/components/competency-screens.tsx"
+        "src/components/competency-screens.tsx",
+        "src/components/competency-explorer.tsx"
       ],
       "tables": [
         "competency_evidence",
         "lab_submissions"
       ],
-      "tests": "tests/engine.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/engine.test.ts; e2e/journey.spec.ts; e2e/interface.spec.ts",
       "status": "Tested",
       "limitations": "Unofficial JSON progress export and evidence timeline; no official certificate.",
       "missingFiles": []
@@ -182,7 +183,8 @@
         "src/app/api/auth/route.ts",
         "src/proxy.ts",
         "supabase/migrations/20261027102447_nexus_foundation.sql",
-        "supabase/migrations/20261027102656_nexus_private_storage_and_vectors.sql"
+        "supabase/migrations/20261027102656_nexus_private_storage_and_vectors.sql",
+        "src/components/workspace-command.tsx"
       ],
       "tables": [
         "profiles",
@@ -190,7 +192,7 @@
         "storage.objects",
         "all public RLS tables"
       ],
-      "tests": "tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
+      "tests": "tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql; e2e/interface.spec.ts",
       "status": "Tested",
       "limitations": "Hosted RLS/RPC and Storage metadata policies passed. Successful Auth/email/expiry and file-byte transport pending Auth dashboard setup; role provisioning UI absent.",
       "missingFiles": []
@@ -217,14 +219,16 @@
       "files": [
         "src/components/preferences.tsx",
         "src/components/ui/primitives.tsx",
-        "src/app/globals.css"
+        "src/app/globals.css",
+        "src/app/interface.css",
+        "src/components/workspace-command.tsx"
       ],
       "tables": [
         "profiles"
       ],
-      "tests": "tests/ui.test.tsx; e2e/journey.spec.ts",
+      "tests": "tests/ui.test.tsx; e2e/journey.spec.ts; e2e/interface.spec.ts",
       "status": "Tested",
-      "limitations": "10 page axe scans plus dark/Hindi state; 320/640px checks. Full translation, screen-reader and real zoom audits incomplete.",
+      "limitations": "26 browser tests passed locally and in CI; six deployed UI checks passed. Axe, dark/Hindi, command-dialog and keyboard/reflow checks passed. Full translation, expert screen-reader and actual zoom audits remain incomplete.",
       "missingFiles": []
     },
     {

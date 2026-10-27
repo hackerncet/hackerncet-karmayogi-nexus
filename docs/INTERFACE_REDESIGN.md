@@ -22,3 +22,9 @@ The underlying external-access limitations remain: full Auth email/session accep
 ## Final local result
 
 A fresh production build, ESLint and strict TypeScript passed. All 40 Vitest tests and all 26 Playwright tests passed; the final browser suite completed in 32.1 seconds with zero failures or skips. This includes six new interaction/navigation checks, ten page-level axe scans, dark/Hindi accessibility, command-dialog accessibility, keyboard focus, 320/640px reflow and the full original competency-to-impact journey. An intermediate run used a build compiled before the mobile dialog-role change; the fresh final build verifies the actual source. Desktop homepage, dashboard and mobile screenshots were visually reviewed. See `evidence/interface-local-results.json`.
+
+## Verified cloud release
+
+Runtime commit `d50cd5f1378a944899859a03443f47233beb934b` deployed live on Render as `dep-dbgcesijnfac739vh55g`. GitHub CI [40534394203](https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40534394203) passed all checks; actual logs confirm 40 unit/UI/SQL tests and 26 browser tests (30.1s). The local production browser suite passed in 32.1s. Public deployed interaction checks are recorded separately after execution.
+
+All six deployed interaction tests passed against https://karmayogi-nexus.onrender.com : public perspective preview, competency filtering/inspection/table display, keyboard command search and passport navigation, course filtering/sorting/comparison/layout, isolated demo perspective routing with live admin denial, and mobile focus/Escape/return behavior. The suite completed in 1.4 minutes; actual results are in `evidence/interface-cloud-results.json`. Browser transport used the environment proxy and ignored its interception certificate; curl HTTPS checks verified normally. No successful account/email/file or real AI acceptance is implied.

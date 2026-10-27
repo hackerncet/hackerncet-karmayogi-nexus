@@ -6,12 +6,14 @@ Independent SIH26101 demonstration for statistical capacity building. Not an off
 
 ## Current checkpoint
 
-Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase project `ffmwbfqyafmnuclsyvry` is active in Mumbai, with three migrations applied, RLS on all 29 application tables, private Storage and pgvector. Hosted SQL authorization tests passed and Render environment settings are connected. Successful email/session/file workflows still require acceptance testing; Auth redirect URLs need dashboard configuration. Real AI remains unconfigured. The deployed release passed GitHub CI (40 unit/UI/SQL + 20 browser tests). See docs/CLOUD_CHECKPOINT_2026-10-27.md.
+Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase project `ffmwbfqyafmnuclsyvry` is active in Mumbai, with three migrations applied, RLS on all 29 application tables, private Storage and pgvector. Hosted SQL authorization tests passed and Render environment settings are connected. Successful email/session/file workflows still require acceptance testing; Auth redirect URLs need dashboard configuration. Real AI remains unconfigured. The redesigned release passed GitHub CI (40 unit/UI/SQL + 26 browser tests). See docs/CLOUD_CHECKPOINT_2026-10-27.md.
 
 - 40 local Vitest tests, including executed PostgreSQL RLS/RPC probes, pass at this checkpoint.
-- 20 Playwright tests pass, including the complete demonstration journey, axe checks, dark/Hindi navigation, mobile reflow and access guards.
+- 26 Playwright tests pass, including the complete demonstration journey, axe checks, dark/Hindi navigation, mobile reflow and access guards.
 - Strict TypeScript, ESLint and production build pass.
 - `npm audit` reported zero known vulnerabilities in the installed dependency graph. This is not a security certification.
+
+The interface includes selectable competency charts, group filters, an evidence inspector, keyboard workspace search, perspective switching and course comparison. See [interface details](docs/INTERFACE_REDESIGN.md).
 
 See [the evidence report](docs/TEST_REPORT.md), [known limitations](docs/KNOWN_LIMITATIONS.md), [requirements matrix](docs/REQUIREMENTS_MATRIX.md) and [continuation checkpoint](docs/CHECKPOINT.md). Reports distinguish local tests from live verification.
 
