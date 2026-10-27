@@ -1,20 +1,22 @@
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   Check,
   ChartNoAxesCombined,
   Layers3,
   Fingerprint,
-  Sparkles,
   FlaskConical,
   ShieldCheck,
   Compass,
-  MoveUpRight,
+  GraduationCap,
+  Building2,
 } from "lucide-react";
 import { PreferenceControls } from "@/components/preferences";
+import { PlatformPreview } from "@/components/platform-preview";
 export default function Home() {
   return (
-    <>
+    <div className="nexus-public">
       <header className="public-header">
         <Link href="/" className="brand">
           <span className="brand-mark">
@@ -25,207 +27,207 @@ export default function Home() {
           </span>
         </Link>
         <nav aria-label="Public navigation">
-          <Link href="/features">Platform</Link>
+          <Link href="/features">The platform</Link>
           <Link href="/how-it-works">How it works</Link>
           <Link href="/accessibility">Accessibility</Link>
         </nav>
         <div className="header-actions">
           <PreferenceControls />
-          <Link className="text-link" href="/login">
-            Sign in <ArrowRight size={16} />
+          <Link className="button button-outline" href="/login">
+            Sign in <ArrowUpRight size={15} />
           </Link>
         </div>
       </header>
       <main id="main">
-        <section className="hero">
+        <section className="hero nexus-hero">
           <div className="hero-copy">
-            <div className="eyebrow">
-              <span className="dot" /> EVIDENCE-DRIVEN CAPACITY BUILDING
+            <div className="hero-release">
+              <span className="dot" /> COMPETENCY INTELLIGENCE FOR OFFICIAL
+              STATISTICS
             </div>
             <h1>
-              From learning to
-              <br />
-              demonstrated
-              <br />
-              <em>competence.</em>
+              From learning to <em>demonstrated competence.</em>
             </h1>
             <p className="hero-description">
-              Build the skills that make better statistics possible. A connected
-              journey from role requirements to real-world practice, designed
-              for India’s statistical workforce.
+              A more capable workforce starts with a clearer picture. Connect
+              role expectations, learning and practical evidence in one
+              intelligent workspace.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/demo/dashboard">
                 Explore the live demo <ArrowRight size={18} />
               </Link>
-              <Link className="button button-outline" href="/how-it-works">
-                See how it works
+              <Link className="hero-secondary-link" href="/how-it-works">
+                Discover the approach <ArrowUpRight size={16} />
               </Link>
             </div>
             <p className="microcopy">
-              <Check size={15} /> Synthetic data · No account required · Reset
-              any time
+              <Check size={15} /> No account required <span>·</span> Synthetic
+              data <span>·</span> Reset any time
             </p>
-            <div className="hero-footnote">
-              <span className="line" /> BUILT FOR THE OFFICIAL STATISTICAL
-              SYSTEM
+            <div className="hero-context">
+              <span>DESIGNED TO COMPLEMENT</span>
+              <strong>
+                iGOT Karmayogi <i>/</i> NSSTA training
+              </strong>
+              <p>
+                Independent SIH demonstration. No official affiliation or
+                endorsement.
+              </p>
             </div>
           </div>
-          <div
-            className="hero-visual"
-            aria-label="Illustration of a competency passport"
-          >
-            <div className="visual-grid" />
-            <div className="passport-preview">
-              <div className="preview-top">
-                <span className="small-caps">COMPETENCY PASSPORT</span>
-                <Fingerprint size={23} />
-              </div>
-              <div className="preview-person">
-                <div className="avatar">AR</div>
-                <div>
-                  <h2>Ananya Rao</h2>
-                  <p>Statistical Officer · Synthetic profile</p>
-                </div>
-                <span className="verified-pill">
-                  <ShieldCheck size={14} /> Evidence linked
-                </span>
-              </div>
-              <div className="passport-divider" />
-              <div className="passport-focus">
-                <div>
-                  <span className="muted">Your next chapter</span>
-                  <h3>
-                    Turn knowledge
-                    <br />
-                    into capability.
-                  </h3>
-                </div>
-                <div className="ring">
-                  <span>
-                    4
-                    <small>
-                      evidence-backed
-                      <br />
-                      competencies
-                    </small>
-                  </span>
-                </div>
-              </div>
-              {[
-                ["Sampling & estimation", 40, "2.0 / 4 target"],
-                ["Survey data quality", 50, "2.5 / 4 target"],
-                ["Python", 20, "1.0 / 3 target"],
-              ].map(([name, width, value]) => (
-                <div className="preview-skill" key={name}>
-                  <div>
-                    <span>{name}</span>
-                    <small>{value}</small>
-                  </div>
-                  <div className="progress-track">
-                    <div style={{ width: `${width}%` }} />
-                  </div>
-                </div>
-              ))}
-              <div className="preview-bottom">
-                <FlaskConical size={17} />
-                <span>Next: the survey quality mission</span>
-                <ArrowRight size={17} />
-              </div>
-            </div>
-            <div className="floating-note">
-              <span className="floating-icon">
-                <Sparkles size={18} />
-              </span>
+          <PlatformPreview />
+        </section>
+        <section
+          className="platform-principles"
+          aria-label="Platform principles"
+        >
+          {[
+            {
+              icon: Fingerprint,
+              title: "Evidence, not assumptions",
+              text: "Training completion and practical mastery stay distinct.",
+            },
+            {
+              icon: Compass,
+              title: "A reason for every next step",
+              text: "Trace recommendations back to your role and gaps.",
+            },
+            {
+              icon: ShieldCheck,
+              title: "Transparent by design",
+              text: "See confidence, source provenance and scoring rules.",
+            },
+          ].map((p) => (
+            <div key={p.title}>
+              <p.icon size={22} />
               <div>
-                <strong>Every recommendation, explained.</strong>
-                <p>Role → evidence → gap → action</p>
+                <strong>{p.title}</strong>
+                <p>{p.text}</p>
               </div>
             </div>
-            <div className="visual-caption">
-              ILLUSTRATIVE PASSPORT / DEMONSTRATION DATA
-            </div>
-          </div>
+          ))}
         </section>
-        <section className="value-strip" aria-label="Platform principles">
-          <div>
-            <Fingerprint />
-            <span>Evidence over assumptions</span>
-          </div>
-          <div>
-            <Compass />
-            <span>A pathway for every role</span>
-          </div>
-          <div>
-            <FlaskConical />
-            <span>Practice that proves progress</span>
-          </div>
-          <div>
-            <ShieldCheck />
-            <span>Designed for trust</span>
-          </div>
-        </section>
-        <section className="public-section">
+        <section className="public-section audience-section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">THE COMPETENCY-TO-IMPACT ENGINE</p>
-              <h2>One connected learning journey.</h2>
+              <p className="eyebrow">ONE PLATFORM. THREE PERSPECTIVES.</p>
+              <h2>Built around the work you do.</h2>
             </div>
             <p>
-              Completion is a milestone.
+              Explore real workflows with clearly
               <br />
-              Demonstrated competence is the goal.
+              labeled demonstration records.
             </p>
           </div>
-          <div className="feature-grid">
+          <div className="audience-grid">
             {[
               {
-                n: "01",
-                icon: Compass,
-                title: "Know where you stand",
-                text: "Compare role expectations with assessments and practical evidence. Unknown skills stay unknown.",
+                icon: Fingerprint,
+                label: "FOR LEARNERS",
+                title: "Own your next career step.",
+                text: "Assess your baseline, understand priority gaps and build an evidence-backed competency passport.",
+                link: "/demo/dashboard",
+                action: "Open learner workspace",
               },
               {
-                n: "02",
-                icon: Layers3,
-                title: "Find the right next step",
-                text: "Understand why an iGOT course or NSSTA programme fits your gaps, level and role.",
+                icon: GraduationCap,
+                label: "FOR TRAINERS",
+                title: "Turn material into meaningful assessment.",
+                text: "Upload a source, review draft questions and publish assessments with protected, server-graded answers.",
+                link: "/demo/trainer",
+                action: "Explore trainer studio",
               },
               {
-                n: "03",
-                icon: FlaskConical,
-                title: "Apply what you learn",
-                text: "Solve statistical missions with synthetic data and transparent evaluation rules.",
+                icon: Building2,
+                label: "FOR ORGANIZATIONS",
+                title: "Make better capacity decisions.",
+                text: "Inspect synthetic workforce skill distributions and compare training scenarios with explicit assumptions.",
+                link: "/demo/admin",
+                action: "Explore workforce intelligence",
               },
-              {
-                n: "04",
-                icon: ChartNoAxesCombined,
-                title: "See progress with evidence",
-                text: "Track baseline and later assessments, practical performance and organizational capacity.",
-              },
-            ].map((f) => (
-              <article className="feature-card" key={f.n}>
-                <div>
-                  <f.icon size={24} />
-                  <span>{f.n}</span>
+            ].map((a) => (
+              <Link href={a.link} className="audience-card" key={a.label}>
+                <div className="audience-top">
+                  <a.icon size={25} />
+                  <ArrowUpRight size={19} />
                 </div>
-                <h3>{f.title}</h3>
-                <p>{f.text}</p>
-              </article>
+                <span className="section-kicker">{a.label}</span>
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+                <span className="audience-action">
+                  {a.action}
+                  <ArrowRight size={16} />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+        <section className="impact-section">
+          <div>
+            <span className="eyebrow">THE COMPETENCY-TO-IMPACT ENGINE</span>
+            <h2>
+              Connect learning
+              <br />
+              to what happens next.
+            </h2>
+            <p>
+              Follow the full lifecycle. Every stage has a purpose, a workflow
+              and a visible evidence trail.
+            </p>
+            <Link href="/how-it-works" className="text-link">
+              Understand the methodology <ArrowUpRight size={16} />
+            </Link>
+          </div>
+          <div className="impact-steps">
+            {[
+              {
+                icon: Fingerprint,
+                title: "Know your baseline",
+                text: "Role requirements, diagnostic evidence and confidence.",
+                url: "/demo/diagnostic",
+              },
+              {
+                icon: Compass,
+                title: "Focus your learning",
+                text: "Explained recommendations across synthetic iGOT and NSSTA options.",
+                url: "/demo/recommendations",
+              },
+              {
+                icon: FlaskConical,
+                title: "Demonstrate it in practice",
+                text: "Four statistical missions with deterministic evaluation.",
+                url: "/demo/practice-labs",
+              },
+              {
+                icon: ChartNoAxesCombined,
+                title: "See what changed",
+                text: "Compare baseline and later evidence without claiming causal impact.",
+                url: "/demo/my-progress",
+              },
+            ].map((s, i) => (
+              <Link key={s.title} href={s.url}>
+                <span className="impact-step-number">0{i + 1}</span>
+                <div>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                </div>
+                <ArrowUpRight size={18} />
+              </Link>
             ))}
           </div>
         </section>
         <section className="demo-cta">
           <div>
-            <p className="eyebrow">EXPLORE A COMPLETE JOURNEY</p>
-            <h2>Meet your next learning milestone.</h2>
+            <p className="eyebrow">EXPLORE THE WORKSPACE</p>
+            <h2>See what your next step could look like.</h2>
             <p>
-              Step into the experience as a learner, trainer or organization
-              planner. Every record is synthetic.
+              One synthetic statistical officer. A complete journey from
+              baseline to practical evidence.
             </p>
           </div>
           <Link href="/demo/dashboard" className="button button-primary">
-            Enter demonstration <MoveUpRight size={18} />
+            Enter demonstration <ArrowUpRight size={18} />
           </Link>
         </section>
       </main>
@@ -243,6 +245,6 @@ export default function Home() {
           <Link href="/features">Integration status</Link>
         </div>
       </footer>
-    </>
+    </div>
   );
 }

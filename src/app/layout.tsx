@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./interface.css";
 import { Preferences } from "@/components/preferences";
 export const metadata: Metadata = {
   title: {

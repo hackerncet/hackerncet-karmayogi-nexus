@@ -1,5 +1,11 @@
 "use client";
-import { useState, type ReactNode } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from "react";
 import Link from "next/link";
 import {
   Layers3,
@@ -25,6 +31,8 @@ import {
 } from "lucide-react";
 import { useWorkspace } from "./workspace-context";
 import { PreferenceControls, usePreferences } from "./preferences";
+import { useRouter } from "next/navigation";
+import { WorkspaceCommand } from "./workspace-command";
 import { Badge } from "./ui/primitives";
 const learnerLinks = [
   ["/dashboard", "dashboard", LayoutDashboard],
@@ -39,6 +47,13 @@ const learnerLinks = [
   ["/ai-tutor", "tutor", Bot],
   ["/my-progress", "progress", TrendingUp],
 ] as const;
+function subscribeMobile(onChange: () => void) {
+  const media = window.matchMedia("(max-width: 800px)");
+  media.addEventListener("change", onChange);
+  return () => media.removeEventListener("change", onChange);
+}
+const mobileSnapshot = () => window.matchMedia("(max-width: 800px)").matches;
+const desktopSnapshot = () => false;
 export function WorkspaceShell({
   path,
   children,
@@ -49,6 +64,45 @@ export function WorkspaceShell({
   const { state, demo, role, href } = useWorkspace();
   const { t, locale } = usePreferences();
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const isMobile = useSyncExternalStore(
+    subscribeMobile,
+    mobileSnapshot,
+    desktopSnapshot,
+  );
+  const asideRef = useRef<HTMLElement>(null);
+  const menuRef = useRef<HTMLButtonElement>(null);
+  function closeNavigation() {
+    setOpen(false);
+    menuRef.current?.focus();
+  }
+  useEffect(() => {
+    if (!open || !isMobile) return;
+    asideRef.current?.querySelector<HTMLElement>(".nav-link.active")?.focus();
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        menuRef.current?.focus();
+      }
+      if (event.key === "Tab") {
+        const items = asideRef.current?.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled]), select",
+        );
+        if (!items?.length) return;
+        const first = items[0],
+          last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, isMobile]);
   const active = learnerLinks.find(
     (l) => path === l[0] || path.startsWith(l[0] + "/"),
   );
@@ -62,8 +116,20 @@ export function WorkspaceShell({
           ? t("profile")
           : t("settings");
   return (
-    <div className="workspace">
+    <div className="workspace nexus-workspace">
+      {isMobile && open && (
+        <button
+          className="navigation-scrim"
+          aria-label="Dismiss navigation overlay"
+          onClick={closeNavigation}
+        />
+      )}
       <aside
+        ref={asideRef}
+        id="workspace-navigation"
+        inert={isMobile && !open}
+        role={isMobile && open ? "dialog" : undefined}
+        aria-modal={isMobile && open ? true : undefined}
         className={`sidebar ${open ? "open" : ""}`}
         aria-label="Workspace navigation"
       >
@@ -80,7 +146,7 @@ export function WorkspaceShell({
             className="icon-button"
             aria-label="Close navigation"
             style={{ position: "absolute", right: 2, top: 56 }}
-            onClick={() => setOpen(false)}
+            onClick={closeNavigation}
           >
             <X size={18} />
           </button>
@@ -98,6 +164,37 @@ export function WorkspaceShell({
             </small>
           </div>
         </div>
+        {demo && (
+          <label className="workspace-switcher">
+            <span>EXPLORE DEMO AS</span>
+            <select
+              aria-label="Demonstration perspective"
+              value={
+                path.startsWith("/trainer")
+                  ? "trainer"
+                  : path.startsWith("/admin")
+                    ? "admin"
+                    : "learner"
+              }
+              onChange={(e) => {
+                setOpen(false);
+                router.push(
+                  href(
+                    e.target.value === "learner"
+                      ? "/dashboard"
+                      : e.target.value === "trainer"
+                        ? "/trainer"
+                        : "/admin",
+                  ),
+                );
+              }}
+            >
+              <option value="learner">Learner workspace</option>
+              <option value="trainer">Trainer studio · simulated</option>
+              <option value="admin">Organization · simulated</option>
+            </select>
+          </label>
+        )}
         <nav className="sidebar-nav">
           <p className="nav-label">YOUR WORKSPACE</p>
           {learnerLinks.map(([url, key, Icon]) => (
@@ -176,6 +273,8 @@ export function WorkspaceShell({
             className="icon-button mobile-menu"
             aria-label="Open navigation"
             aria-expanded={open}
+            aria-controls="workspace-navigation"
+            ref={menuRef}
             onClick={() => setOpen(!open)}
           >
             <PanelLeft size={20} />
@@ -185,6 +284,7 @@ export function WorkspaceShell({
             <ChevronRight size={12} />
             <strong>{title}</strong>
           </div>
+          <WorkspaceCommand />
           <div className="topbar-right">
             <PreferenceControls />
             <Link
@@ -194,7 +294,11 @@ export function WorkspaceShell({
             >
               <Settings size={17} />
             </Link>
-            <div className="user-chip">
+            <Link
+              href={href("/profile")}
+              className="user-chip"
+              aria-label="Open my profile"
+            >
               <div className="avatar">
                 {state.profile.name
                   .split(" ")
@@ -206,7 +310,7 @@ export function WorkspaceShell({
                 <strong>{state.profile.name}</strong>
                 <small>{state.profile.designation}</small>
               </div>
-            </div>
+            </Link>
           </div>
         </header>
         {demo && (
@@ -243,7 +347,11 @@ export function WorkspaceShell({
                 KARMAYOGI NEXUS / {demo ? "DEMONSTRATION" : "WORKSPACE"}
               </div>
               <h1>{title}</h1>
-              <p>From learning to demonstrated competence.</p>
+              <p>
+                {path === "/dashboard"
+                  ? "Your role. Your evidence. Your next move."
+                  : "Turn learning into measurable, evidence-backed progress."}
+              </p>
             </div>
             <Badge tone={demo ? "amber" : "teal"}>
               {demo

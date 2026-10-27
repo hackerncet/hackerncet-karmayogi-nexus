@@ -1,0 +1,331 @@
+{
+  "scope": "Final local interface regression against a fresh production build. Configuration and attachments omitted from the actual Playwright reporter output.",
+  "checks": {
+    "production_build": "passed",
+    "lint": "passed",
+    "strict_types": "passed",
+    "vitest_passed": 40
+  },
+  "stats": {
+    "startTime": "2026-10-27T15:45:27.527Z",
+    "duration": 32053.315000000002,
+    "expected": 26,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "browser_tests": [
+    {
+      "title": "homepage preview switches perspective and opens the chosen demonstration",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1953,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "competency explorer filters, inspects evidence and changes display",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1111,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "workspace command search is keyboard accessible and routes to the matching competency",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2718,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "course discovery sorts, filters, compares and switches layout",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1087,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "demo perspective switcher changes workspace without granting live privileges",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 2472,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile navigation traps keyboard focus, dismisses with Escape and restores the trigger",
+      "file": "interface.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 625,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "visual review captures and local performance observations",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1217,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "dark theme and Hindi navigation remain accessible",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1312,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "complete competency-to-impact demonstration",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 4883,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "demo answers persist across reload and SQL rejects application tables",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 959,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "trainer upload, honest AI fallback and conversation clear",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1304,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "protected routes require sign-in and mutations reject cross-origin requests",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 483,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "catalogue search, pagination and provider filtering are functional",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 384,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "keyboard dialog focus and mobile navigation",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 779,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 573,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/dashboard",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1006,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/competencies",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 894,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/diagnostic",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 567,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/recommendations",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 639,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/practice-labs/quality",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 967,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/trainer/question-bank",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 600,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/admin",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 856,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /demo/admin/impact-simulator",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 608,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "axe WCAG 2.2 AA: /login",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 535,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "mobile and 200% equivalent viewport reflow without page overflow",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 1003,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "all declared primary routes resolve and unknown routes return 404",
+      "file": "journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 241,
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

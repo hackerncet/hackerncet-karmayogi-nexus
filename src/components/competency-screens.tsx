@@ -119,7 +119,7 @@ export function Passport({ gapsOnly = false }: { gapsOnly?: boolean }) {
       ) : (
         <div className="passport-grid">
           {visible.map((s) => (
-            <Card className="passport-card" key={s.competency.id}>
+            <Card className="passport-card" id={`competency-${s.competency.id}`} key={s.competency.id}>
               <div
                 style={{
                   display: "flex",
