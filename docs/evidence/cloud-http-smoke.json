@@ -1,0 +1,65 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "bytes": 36267,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/demo/dashboard",
+    "status": 200,
+    "bytes": 33614,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/demo/diagnostic",
+    "status": 200,
+    "bytes": 24237,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/demo/practice-labs/quality",
+    "status": 200,
+    "bytes": 25054,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/demo/trainer/question-bank",
+    "status": 200,
+    "bytes": 29042,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/demo/admin/impact-simulator",
+    "status": 200,
+    "bytes": 30854,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/login",
+    "status": 200,
+    "bytes": 8987,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/api/health",
+    "status": 200,
+    "bytes": 137,
+    "expected": 200,
+    "matches": true
+  },
+  {
+    "path": "/missing-page",
+    "status": 404,
+    "bytes": 7116,
+    "expected": 404,
+    "matches": true
+  }
+]

@@ -6,7 +6,7 @@ Independent SIH26101 demonstration for statistical capacity building. Not an off
 
 ## Current checkpoint
 
-Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase lists no projects; creation awaits the required organization choice. Database and real AI functionality remain unconnected. See docs/CLOUD_CHECKPOINT_2026-10-27.md.
+Source is published at https://github.com/hackerncet/hackerncet-karmayogi-nexus and the independent demonstration is live at https://karmayogi-nexus.onrender.com . Supabase lists no projects; creation awaits the required organization choice. Database and real AI functionality remain unconnected. The deployed release passed GitHub CI (40 unit/UI/SQL + 20 browser tests). See docs/CLOUD_CHECKPOINT_2026-10-27.md.
 
 - 40 local Vitest tests, including executed PostgreSQL RLS/RPC probes, pass at this checkpoint.
 - 20 Playwright tests pass, including the complete demonstration journey, axe checks, dark/Hindi navigation, mobile reflow and access guards.

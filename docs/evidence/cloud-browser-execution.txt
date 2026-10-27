@@ -1,0 +1,5 @@
+Executed Playwright against https://karmayogi-nexus.onrender.com with artifacts/cloud.config.ts.
+Test: complete competency-to-impact demonstration
+Result observed in tool output: 1 passed (37.8s).
+The browser used the environment egress proxy and ignoreHTTPSErrors for its interception certificate. Independent curl verification used normal certificate checks.
+This is a transcript extract; a machine-readable cloud-browser report was not retained. The complete test source is e2e/journey.spec.ts.

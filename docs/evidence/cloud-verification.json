@@ -1,0 +1,24 @@
+{
+  "runtimeCommit": "22347c1785895426e00742e5d7439447f85d2431",
+  "repository": "https://github.com/hackerncet/hackerncet-karmayogi-nexus",
+  "demoURL": "https://karmayogi-nexus.onrender.com/demo/dashboard",
+  "render": {
+    "service": "srv-dbg8i4vavr4c73dau0rg",
+    "deployment": "dep-dbg8lprbc2fs73a03mb0",
+    "status": "live",
+    "plan": "free",
+    "region": "oregon"
+  },
+  "ci": {
+    "run": 40496429184,
+    "conclusion": "success",
+    "unitUiSqlTests": 40,
+    "browserTests": 20
+  },
+  "publicSmokeChecks": 9,
+  "remoteBrowserJourney": "passed",
+  "databaseConfigured": false,
+  "aiConfigured": false,
+  "supabaseProjects": 0,
+  "supabaseOrganizationAwaitingChoice": "kkfzdupkhmutmukrrkmb"
+}

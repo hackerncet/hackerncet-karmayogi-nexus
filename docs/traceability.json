@@ -194,8 +194,8 @@
       "integration_configs"
     ],
     "tests": "e2e/journey.spec.ts",
-    "status": "Blocked",
-    "limitations": "Local build/test pass. GitHub repository creation missing; Render account/workspace selection needed. CI authored, not remotely run."
+    "status": "Tested",
+    "limitations": "GitHub source and Render demo deployed; remote CI passed 40 unit/UI/SQL and 20 browser tests. Hosted Supabase/real-workforce production remain blocked by organization selection and further acceptance."
   },
   {
     "id": "R13",

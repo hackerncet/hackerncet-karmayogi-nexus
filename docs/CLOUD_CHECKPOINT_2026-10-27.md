@@ -6,7 +6,7 @@ Public demonstration: https://karmayogi-nexus.onrender.com/demo/dashboard . Rend
 
 The complete competency-to-impact browser journey passed against the actual public URL. The test browser used the environment's egress proxy and ignored its browser-specific untrusted interception certificate; independent curl HTTPS requests succeeded with normal certificate verification. This is UI verification, not an external TLS security assessment.
 
-Initial GitHub CI passed lint, strict types, 40 unit/UI/SQL tests and build, then found a real 320px homepage overflow in the standard Chrome/font environment. The narrow heading/header/decoration layout was corrected. The targeted local reflow check passes; updated remote CI and deploy are being verified. Do not report the failed initial CI as passing.
+Initial GitHub CI passed lint, strict types, 40 unit/UI/SQL tests and build, then found a real 320px homepage overflow in the standard Chrome/font environment. The narrow heading/header/decoration layout was corrected. The targeted local reflow check passed. The corrected release and the subsequent integration-status update both passed remote GitHub CI: 40 unit/UI/SQL tests, 20 browser tests, lint, strict types and production build. The final application commit is `22347c1785895426e00742e5d7439447f85d2431`. Render deployment `dep-dbg8lprbc2fs73a03mb0` is live. CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40496429184 . Nine public HTTP smoke checks passed, including the expected 404. Do not report the failed initial CI as passing.
 
 ## Required next selection
 
