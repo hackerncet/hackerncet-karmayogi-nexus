@@ -1,24 +1,33 @@
 {
-  "runtimeCommit": "22347c1785895426e00742e5d7439447f85d2431",
+  "runtimeCommit": "5e1f2d05a815b58f32e20774745bddafee437a9d",
   "repository": "https://github.com/hackerncet/hackerncet-karmayogi-nexus",
   "demoURL": "https://karmayogi-nexus.onrender.com/demo/dashboard",
   "render": {
     "service": "srv-dbg8i4vavr4c73dau0rg",
-    "deployment": "dep-dbg8lprbc2fs73a03mb0",
+    "deployment": "dep-dbg9ivi9lscs7394jcb0",
     "status": "live",
     "plan": "free",
     "region": "oregon"
   },
   "ci": {
-    "run": 40496429184,
+    "run": 40504357255,
     "conclusion": "success",
     "unitUiSqlTests": 40,
     "browserTests": 20
   },
   "publicSmokeChecks": 9,
   "remoteBrowserJourney": "passed",
-  "databaseConfigured": false,
+  "databaseConfigured": true,
   "aiConfigured": false,
-  "supabaseProjects": 0,
-  "supabaseOrganizationAwaitingChoice": "kkfzdupkhmutmukrrkmb"
+  "supabaseProjects": 1,
+  "supabaseProject": "ffmwbfqyafmnuclsyvry",
+  "supabaseRegion": "ap-south-1",
+  "supabaseMigrationsApplied": 3,
+  "hostedAuthorizationSql": "passed",
+  "successfulAuthBrowserSessions": "not verified",
+  "authUrlConfiguration": "requires dashboard setup",
+  "postConnectionHttpChecks": 9,
+  "postConnectionHttpResult": "passed",
+  "postConnectionBrowserTests": 2,
+  "postConnectionBrowserResult": "passed"
 }

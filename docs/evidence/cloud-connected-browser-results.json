@@ -1,0 +1,40 @@
+{
+  "runtime_commit": "5e1f2d05a815b58f32e20774745bddafee437a9d",
+  "origin": "https://karmayogi-nexus.onrender.com",
+  "scope": "Summary extracted from actual Playwright JSON reporter output; configuration/env/attachments omitted. No successful account/email or private file transport acceptance.",
+  "stats": {
+    "startTime": "2026-10-27T12:33:26.888Z",
+    "duration": 69960.061,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "title": "cloud configuration panel and private routing",
+      "file": "artifacts/cloud-configuration.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 32503,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "title": "complete competency-to-impact demonstration",
+      "file": "e2e/journey.spec.ts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "duration_ms": 35525,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "transport_caveat": "Browser used environment proxy and ignored its interception certificate; independent curl TLS checks verified normally."
+}

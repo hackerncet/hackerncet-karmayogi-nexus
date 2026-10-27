@@ -36,3 +36,9 @@ Supabase tools have no Auth configuration operation. Site/callback/recovery URLs
 Keep email confirmation enabled (public Auth settings currently report email enabled, signup enabled, autoconfirm false). Verify successful registration, confirmation, sign-in/out, expiry, recovery and two-identity cross-tenant API behavior afterwards. Default hosted mail restrictions or an approved SMTP provider may need configuration. Do not request private keys in chat, disable verification to hide the blocker, or grant public administrative roles.
 
 Real AI credentials/models, authorized iGOT APIs, verified NSSTA TPAC records and government SSO remain unavailable. Live role/cohort/framework administration, course/path writes, complete Hindi content, retention/erasure, unattended document processing and other limitations in KNOWN_LIMITATIONS.md still require work. The full definition of done is not satisfied.
+
+## Verified updated deployment
+
+Runtime commit `5e1f2d05a815b58f32e20774745bddafee437a9d` deployed live as `dep-dbg9ivi9lscs7394jcb0`. GitHub CI run https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40504357255 succeeded; logs confirm 40 Vitest and 20 browser tests (24.0 seconds for remote browser suite). All nine repeated configuration/negative HTTP probes passed, including HTTP 307 from the signed-out dashboard, anonymous Data API/RPC denial, cross-origin denial and incorrect-credential rejection by live Auth. See `evidence/supabase-cloud-http.json`. This verifies routing and failure handling, not successful account/email acceptance.
+
+The deployed-browser checks also passed: configuration status panel, enabled configured signup form, raw 307 guards for learner/trainer/admin, and the complete synthetic competency-to-impact journey. Two tests passed in 1.2 minutes (32.5s and 35.5s). No actual user signup/email was performed. The interception-certificate test caveat above applies.

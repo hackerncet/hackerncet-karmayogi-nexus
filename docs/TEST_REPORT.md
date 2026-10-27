@@ -35,3 +35,7 @@ No load, multi-region, disaster-recovery, external SSO, live email, real workfor
 Local repeated Next builds encountered an invalid persistent Turbopack cache. Moving the cache out of the project enabled a successful fresh build; this is an environment/build artifact issue, not evidence of successful cloud functionality.
 
 The changed-source local regression completed successfully: production build passed after preserving the invalid cache, lint and strict types passed, all 40 Vitest tests passed, and all 20 Playwright tests passed in 58.2 seconds, including the new raw HTTP 307 assertions. Hosted successful session/email/file acceptance remains pending.
+
+Updated runtime `5e1f2d05a815b58f32e20774745bddafee437a9d`: GitHub CI [40504357255](https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40504357255) succeeded, with log-confirmed 40 Vitest and 20 browser tests. Render deploy `dep-dbg9ivi9lscs7394jcb0` is live. All nine repeated configuration/negative HTTP probes passed; the initial streamed redirect issue is resolved on the deployed URL. Successful Auth sessions, mail and file transport remain pending.
+
+The deployed-browser checks also passed: configuration status panel, enabled configured signup form, raw 307 guards for learner/trainer/admin, and the complete synthetic competency-to-impact journey. Two tests passed in 1.2 minutes (32.5s and 35.5s). No actual user signup/email was performed. The interception-certificate test caveat above applies.

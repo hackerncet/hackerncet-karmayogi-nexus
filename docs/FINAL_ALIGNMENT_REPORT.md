@@ -16,7 +16,7 @@ Backend source includes caller-scoped Supabase SSR, role checks, RLS, private St
 
 - Source: https://github.com/hackerncet/hackerncet-karmayogi-nexus
 - Render public demo: https://karmayogi-nexus.onrender.com/demo/dashboard
-- Prior passing cloud CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40496429184
+- Prior passing cloud CI: https://github.com/hackerncet/hackerncet-karmayogi-nexus/actions/runs/40504357255
 - Completed workforce production URL: **not established**. The public demo is not relabeled production completion.
 
 ## G–H. Supabase and authorization

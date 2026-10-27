@@ -1,0 +1,15 @@
+import { test, expect } from '@playwright/test';
+test('cloud configuration panel and private routing', async ({ page, request }) => {
+ const response = await request.get('/api/health');
+ expect(response.status()).toBe(200);
+ expect((await response.json()).databaseConfigured).toBe(true);
+ for (const path of ['/dashboard','/trainer/materials','/admin/users']) {
+  const redirect = await request.get(path,{maxRedirects:0});
+  expect(redirect.status()).toBe(307);
+  expect(redirect.headers().location).toMatch(/\/login$/);
+ }
+ await page.goto('/features');
+ await expect(page.getByText('DATABASE CONFIGURED',{exact:true})).toBeVisible({timeout:30000});
+ await page.goto('/signup');
+ await expect(page.getByRole('button',{name:'Create account'})).toBeEnabled();
+});

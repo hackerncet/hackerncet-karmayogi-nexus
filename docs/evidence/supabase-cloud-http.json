@@ -1,0 +1,62 @@
+{
+  "observed_at": "2026-10-27T12:33:50.831503+00:00",
+  "origin": "https://karmayogi-nexus.onrender.com",
+  "scope": "Configuration and negative HTTP checks only; email, successful sessions and file bytes not verified.",
+  "checks": [
+    {
+      "check": "deployment configuration",
+      "http_status": 200,
+      "expected_status": 200,
+      "passed": true
+    },
+    {
+      "check": "email Auth enabled; confirmation required",
+      "http_status": 200,
+      "expected_status": 200,
+      "passed": true
+    },
+    {
+      "check": "anonymous profile access denied",
+      "http_status": 401,
+      "expected_status": 401,
+      "passed": true
+    },
+    {
+      "check": "anonymous grading RPC denied",
+      "http_status": 401,
+      "expected_status": 401,
+      "passed": true
+    },
+    {
+      "check": "private dashboard redirects without session",
+      "http_status": 307,
+      "expected_status": 307,
+      "passed": true
+    },
+    {
+      "check": "unauthenticated workspace mutation denied",
+      "http_status": 401,
+      "expected_status": 401,
+      "passed": true
+    },
+    {
+      "check": "cross-origin mutation denied",
+      "http_status": 403,
+      "expected_status": 403,
+      "passed": true
+    },
+    {
+      "check": "unregistered credential login denied by live Auth",
+      "http_status": 401,
+      "expected_status": 401,
+      "passed": true
+    },
+    {
+      "check": "configured signup form renders",
+      "http_status": 200,
+      "expected_status": 200,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
