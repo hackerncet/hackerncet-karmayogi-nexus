@@ -13,9 +13,9 @@
         "competency_evidence",
         "assessment_attempts"
       ],
-      "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
       "status": "Tested",
-      "limitations": "Deterministic demo and SQL grading tested; real AI competency inference and hosted acceptance unavailable.",
+      "limitations": "Deterministic demo and hosted SQL grading tested; successful authenticated browser assessment acceptance and real AI remain pending.",
       "missingFiles": []
     },
     {
@@ -118,9 +118,9 @@
         "private.assessment_keys",
         "private.attempt_keys"
       ],
-      "tests": "tests/rls.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
       "status": "Tested",
-      "limitations": "Server grading/deadlines/limits tested locally. Full adaptive selection and delayed-feedback policy UI absent.",
+      "limitations": "Server grading/deadlines/limits tested locally; hosted SQL grading/snapshots/redaction/replay tested. Adaptive selection and delayed-feedback UI absent.",
       "missingFiles": []
     },
     {
@@ -136,9 +136,9 @@
         "chat_messages",
         "private.ai_request_log"
       ],
-      "tests": "tests/ai-documents.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/ai-documents.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
       "status": "Implemented",
-      "limitations": "Prewritten demo tested; real provider and hosted tenant retrieval not verified. Multi-chat history prompting incomplete.",
+      "limitations": "Prewritten demo tested; hosted tenant-scoped vector retrieval and quotas passed. Real provider and multi-chat history prompting unverified.",
       "missingFiles": []
     },
     {
@@ -190,9 +190,9 @@
         "storage.objects",
         "all public RLS tables"
       ],
-      "tests": "tests/rls.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
       "status": "Tested",
-      "limitations": "Local RLS/guards verified. Hosted Auth/Storage/recovery/expiry tests blocked by cloud checkpoint; live role provisioning UI absent.",
+      "limitations": "Hosted RLS/RPC and Storage metadata policies passed. Successful Auth/email/expiry and file-byte transport pending Auth dashboard setup; role provisioning UI absent.",
       "missingFiles": []
     },
     {
@@ -208,7 +208,7 @@
       ],
       "tests": "e2e/journey.spec.ts",
       "status": "Tested",
-      "limitations": "GitHub source and Render demo deployed; remote CI passed 40 unit/UI/SQL and 20 browser tests. Hosted Supabase/real-workforce production remain blocked by organization selection and further acceptance.",
+      "limitations": "GitHub and Render demo deployed; recorded remote CI passed 40 unit/UI/SQL and 20 browser tests. Mumbai migrations and hosted SQL acceptance passed; successful sessions/files and workforce production remain pending.",
       "missingFiles": []
     },
     {
@@ -239,9 +239,9 @@
         "lab_submissions",
         "competency_evidence"
       ],
-      "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts",
+      "tests": "tests/engine.test.ts; tests/rls.test.ts; e2e/journey.spec.ts; tests/sql/hosted-authorization.sql",
       "status": "Tested",
-      "limitations": "Four deterministic synthetic missions; no unrestricted SQL/code execution. Hosted evidence workflow not verified.",
+      "limitations": "Four deterministic missions tested; hosted trusted lab scoring/evidence passed. Authenticated browser lab transport pending; no unrestricted SQL/code execution.",
       "missingFiles": []
     },
     {

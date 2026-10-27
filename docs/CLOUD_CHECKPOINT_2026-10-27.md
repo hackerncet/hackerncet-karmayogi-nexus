@@ -23,7 +23,7 @@ The earlier release `22347c1785895426e00742e5d7439447f85d2431` passed GitHub CI:
 
 Initial post-database HTTP probes passed eight of nine checks. The private dashboard returned a streamed HTTP 200 containing a login redirect instead of an HTTP 307. No private record was returned. The proxy now redirects unauthenticated workspace requests before rendering and preserves refreshed cookies. A raw-HTTP regression assertion was added for learner, trainer and admin routes. The integration-status panel now checks deployment configuration instead of displaying a stale hardcoded database-pending label. Final release/deployment and repeated smoke evidence must be recorded after execution; do not relabel the initial failing probe as passed.
 
-A local Next build first failed because its existing Turbopack cache was invalid. Preserving that cache outside the repository and rebuilding resolved the failure. Static types, lint and all 40 Vitest tests passed. Current changed-source build/browser/CI evidence is tracked in TEST_REPORT.md and evidence files.
+A local Next build first failed because its existing Turbopack cache was invalid. Preserving that cache outside the repository and rebuilding resolved the failure. Static types, lint and all 40 Vitest tests passed. The changed-source build, lint and strict types passed, and all 20 local browser tests passed in 58.2 seconds, including raw HTTP redirect checks. Remote CI/deployment must still be recorded for this revision.
 
 ## Required external step
 

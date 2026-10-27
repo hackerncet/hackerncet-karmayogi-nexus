@@ -1,6 +1,6 @@
 # Database schema
 
-Migrations were created with Supabase CLI 2.122.0. No cloud migration has been applied.
+Migrations were created with Supabase CLI 2.122.0. All three migrations were applied successfully to the user-confirmed empty Mumbai project `ffmwbfqyafmnuclsyvry`. Hosted structure/RLS/RPC/vector tests passed; Auth sessions and actual file-byte transport remain unverified.
 
 | Area | Tables | Access |
 |---|---|---|
@@ -21,6 +21,6 @@ All public application tables enable RLS. Explicit grants and policies are separ
 
 Composite department/org foreign keys prevent mismatched memberships. UUIDs, competency keys, uniqueness and numeric range checks constrain stored records. User/date, org/competency and attempt indexes support principal queries. Vector search initially uses exact nearest-neighbor search; no HNSW benefit is claimed without corpus benchmarks.
 
-Private bucket `learning-materials` permits at most 10 MiB and approved MIME types. Object namespaces begin with the authenticated owner UUID. Local storage-policy tests emulate Supabase’s storage metadata schema; they do not exercise the hosted Storage service.
+Private bucket `learning-materials` permits at most 10 MiB and approved MIME types. Object namespaces begin with the authenticated owner UUID. Local storage-policy tests emulate Supabase metadata. The hosted rolled-back SQL suite also exercised actual metadata policies, including owner and cross-owner denial, but not file-byte upload/download through the Storage API.
 
 Reference competency/rule inserts are idempotent. Synthetic officers/courses live in application fixtures, never mixed into real employee records. Retention automation, user erasure, framework lifecycle and all suggested optional tables are not complete.
