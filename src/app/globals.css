@@ -1589,6 +1589,31 @@ html[data-theme="dark"] .button-primary {
   gap: 18px;
   margin-top: 28px;
 }
+.auth-wrap .google-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 26px;
+}
+.auth-wrap .google-auth .button {
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+}
+.auth-wrap .auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.auth-wrap .auth-divider::before,
+.auth-wrap .auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
 .auth-wrap p {
   font-size: 13px;
   color: var(--muted);

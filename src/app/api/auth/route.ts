@@ -15,7 +15,7 @@ export async function POST(req: Request) {
       headers: req.headers,
     }).formData();
     const action = z
-      .enum(["login", "signup", "forgot-password", "reset-password", "logout"])
+      .enum(["login", "signup", "google", "forgot-password", "reset-password", "logout"])
       .parse(form.get("action"));
     const db = await createClient();
     const origin = appOrigin();
@@ -31,6 +31,18 @@ export async function POST(req: Request) {
       const { error } = await db.auth.updateUser({ password });
       if (error) throw new HttpError(422, "Password could not be updated.");
       return Response.json({ redirect: "/dashboard" });
+    }
+    if (action === "google") {
+      const { data, error } = await db.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: `${origin}/auth/callback` },
+      });
+      if (error || !data.url)
+        throw new HttpError(
+          503,
+          "Google sign-in is unavailable. The Google provider may not be enabled yet.",
+        );
+      return Response.json({ redirect: data.url });
     }
     const email = z.email().max(254).parse(form.get("email"));
     if (action === "forgot-password") {
