@@ -108,11 +108,62 @@ describe("AI validation and retrieval", () => {
   });
   it("fails explicitly when provider credentials are missing", async () => {
     const key = process.env.LLM_API_KEY;
+    const openRouterKey = process.env.OPENROUTER_API_KEY;
     delete process.env.LLM_API_KEY;
+    delete process.env.OPENROUTER_API_KEY;
     await expect(new CompatibleLLM().json("x", "x")).rejects.toThrow(
       "not configured",
     );
-    if (key) process.env.LLM_API_KEY = key;
+    if (key === undefined) delete process.env.LLM_API_KEY;
+    else process.env.LLM_API_KEY = key;
+    if (openRouterKey === undefined) delete process.env.OPENROUTER_API_KEY;
+    else process.env.OPENROUTER_API_KEY = openRouterKey;
+  });
+  it("uses the server-side OpenRouter key, JSON mode and free router", async () => {
+    const prior = {
+      openRouterKey: process.env.OPENROUTER_API_KEY,
+      apiKey: process.env.LLM_API_KEY,
+      baseUrl: process.env.LLM_BASE_URL,
+      model: process.env.LLM_MODEL,
+    };
+    const originalFetch = globalThis.fetch;
+    let request:
+      | { url: string; headers: Headers; body: Record<string, unknown> }
+      | undefined;
+    process.env.OPENROUTER_API_KEY = "test-secret";
+    delete process.env.LLM_API_KEY;
+    process.env.LLM_BASE_URL = "https://openrouter.ai/api/v1";
+    process.env.LLM_MODEL = "openrouter/free";
+    globalThis.fetch = (async (input, init) => {
+      request = {
+        url: String(input),
+        headers: new Headers(init?.headers),
+        body: JSON.parse(String(init?.body)),
+      };
+      return Response.json({
+        choices: [{ message: { content: '{"ok":true}' } }],
+      });
+    }) as typeof fetch;
+    try {
+      await expect(new CompatibleLLM().json("system", "prompt")).resolves.toEqual({ ok: true });
+      expect(request?.url).toBe("https://openrouter.ai/api/v1/chat/completions");
+      expect(request?.headers.get("authorization")).toBe("Bearer test-secret");
+      expect(request?.headers.get("x-openrouter-title")).toBe("Karmayogi Nexus");
+      expect(request?.body.model).toBe("openrouter/free");
+      expect(request?.body.response_format).toEqual({ type: "json_object" });
+      expect(request?.body.max_tokens).toBe(4500);
+    } finally {
+      globalThis.fetch = originalFetch;
+      for (const [name, value] of Object.entries({
+        OPENROUTER_API_KEY: prior.openRouterKey,
+        LLM_API_KEY: prior.apiKey,
+        LLM_BASE_URL: prior.baseUrl,
+        LLM_MODEL: prior.model,
+      })) {
+        if (value === undefined) delete process.env[name];
+        else process.env[name] = value;
+      }
+    }
   });
 });
 describe("document processing", () => {

@@ -58,7 +58,7 @@ Repository: `hackerncet/hackerncet-karmayogi-nexus` (public, supplied by the use
 
 ## AI configuration
 
-Use server-side `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL`; optional `EMBEDDING_MODEL` must support 1,536-dimensional embeddings. The compatible endpoint must support JSON chat completions and `max_completion_tokens`. Real generation returns unavailable when credentials are missing. Demonstration examples are explicitly prewritten.
+For a zero-cost OpenRouter setup, add the secret `OPENROUTER_API_KEY` in Render and set `LLM_BASE_URL=https://openrouter.ai/api/v1` and `LLM_MODEL=openrouter/free`. The free router selects an available free model that supports requested features such as JSON output; free usage has request limits and upstream availability can vary. `LLM_API_KEY` remains supported as a generic compatible-provider alias. Leave `EMBEDDING_MODEL` unset for lexical retrieval and avoid embedding charges. AI keys are server-side only; never use a `NEXT_PUBLIC_` name. Real generation stays unavailable until both a key and model are configured. Demonstration examples are explicitly prewritten.
 
 ## Source layout
 

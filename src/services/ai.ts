@@ -17,8 +17,12 @@ export interface EmbeddingProvider {
 export class CompatibleLLM implements LLMProvider, EmbeddingProvider {
   model = process.env.LLM_MODEL ?? "";
   private async request(path: string, payload: unknown) {
-    const key = process.env.LLM_API_KEY;
-    const base = process.env.LLM_BASE_URL ?? "https://api.openai.com/v1";
+    const key = process.env.OPENROUTER_API_KEY || process.env.LLM_API_KEY;
+    const base =
+      process.env.LLM_BASE_URL ??
+      (process.env.OPENROUTER_API_KEY
+        ? "https://openrouter.ai/api/v1"
+        : "https://api.openai.com/v1");
     const url = new URL(base);
     if (url.protocol !== "https:" || url.username || url.password)
       throw new HttpError(
@@ -30,12 +34,19 @@ export class CompatibleLLM implements LLMProvider, EmbeddingProvider {
         503,
         "AI provider is not configured. Real generation is unavailable; use labeled demo examples.",
       );
+    const headers: Record<string, string> = {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+    };
+    if (url.hostname === "openrouter.ai" || url.hostname.endsWith(".openrouter.ai")) {
+      headers["HTTP-Referer"] =
+        process.env.APP_ORIGIN || process.env.RENDER_EXTERNAL_URL ||
+        "https://karmayogi-nexus.onrender.com";
+      headers["X-OpenRouter-Title"] = "Karmayogi Nexus";
+    }
     const res = await fetch(`${base.replace(/\/$/, "")}/${path}`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${key}`,
-        "Content-Type": "application/json",
-      },
+      headers,
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(25000),
       redirect: "error",
@@ -43,7 +54,7 @@ export class CompatibleLLM implements LLMProvider, EmbeddingProvider {
     if (!res.ok)
       throw new HttpError(
         503,
-        "AI provider request failed. No question or score was fabricated.",
+        `AI provider request failed (${res.status}). No question or score was fabricated.`,
       );
     const text = await res.text();
     if (text.length > 100000)
@@ -63,7 +74,7 @@ export class CompatibleLLM implements LLMProvider, EmbeddingProvider {
       ],
       response_format: { type: "json_object" },
       temperature: 0.2,
-      max_completion_tokens: 4500,
+      max_tokens: 4500,
     });
     const response = z
       .object({
