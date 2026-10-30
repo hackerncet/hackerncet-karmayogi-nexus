@@ -1,7 +1,13 @@
 import { z } from "zod";
 import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
-import { originCheck, apiError, HttpError, boundedBody } from "@/lib/http";
+import {
+  originCheck,
+  apiError,
+  HttpError,
+  boundedBody,
+  appOrigin,
+} from "@/lib/http";
 export async function POST(req: Request) {
   try {
     originCheck(req);
@@ -12,8 +18,7 @@ export async function POST(req: Request) {
       .enum(["login", "signup", "forgot-password", "reset-password", "logout"])
       .parse(form.get("action"));
     const db = await createClient();
-    const origin = new URL(process.env.APP_ORIGIN ?? "http://localhost:3000")
-      .origin;
+    const origin = appOrigin();
     if (action === "logout") {
       await db.auth.signOut();
       return NextResponse.redirect(`${origin}/login`, 303);

@@ -46,7 +46,7 @@ Scoring and statistical labs are deterministic. AI is optional for document-grou
 
 Do not apply migrations to an unrelated project. After the early Render preview, discover accessible Supabase projects and select a new/explicitly authorized target. Review and apply all three migrations in order. See [database schema](docs/DATABASE_SCHEMA.md) and [deployment](docs/DEPLOYMENT.md).
 
-Set `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` and the exact `APP_ORIGIN`. Supabase Auth must have email confirmation enabled and correct site/callback/recovery URLs. Government SSO is not configured. New accounts receive an isolated learner membership; organization reassignment and privileged-role provisioning require a trusted operator.
+Set `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`. Set `APP_ORIGIN` to the public app origin; on Render, the app can fall back to Render's `RENDER_EXTERNAL_URL`. Supabase Auth must have email confirmation enabled and the same site/callback/recovery URLs allowlisted. Government SSO is not configured. New accounts receive an isolated learner membership; organization reassignment and privileged-role provisioning require a trusted operator.
 
 The demo fixture seed is application-only. Migrations seed reference competencies and scoring rules; they do not insert fabricated employees into a real organization.
 

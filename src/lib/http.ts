@@ -7,9 +7,22 @@ export class HttpError extends Error {
     super(message);
   }
 }
+export function appOrigin() {
+  const configured =
+    process.env.APP_ORIGIN ||
+    process.env.RENDER_EXTERNAL_URL ||
+    "http://localhost:3000";
+  const url = new URL(configured);
+  if (
+    process.env.NODE_ENV === "production" &&
+    configured !== "http://localhost:3000" &&
+    url.protocol !== "https:"
+  )
+    throw new Error("The production application origin must use HTTPS.");
+  return url.origin;
+}
 export function originCheck(req: Request) {
-  const expected = process.env.APP_ORIGIN ?? "http://localhost:3000";
-  if (req.headers.get("origin") !== new URL(expected).origin)
+  if (req.headers.get("origin") !== appOrigin())
     throw new HttpError(403, "Request origin is not allowed.");
 }
 export async function jsonBody(req: Request) {

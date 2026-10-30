@@ -19,7 +19,7 @@ import {
   AuthorizedIGOTProvider,
   withRetry,
 } from "../src/services/integrations";
-import { originCheck, jsonBody } from "../src/lib/http";
+import { appOrigin, originCheck, jsonBody } from "../src/lib/http";
 import { isolatedExtract } from "../src/services/isolated-document";
 const chunks = [
   {
@@ -251,5 +251,26 @@ describe("external adapters and HTTP boundaries", () => {
         }),
       ),
     ).rejects.toThrow("Invalid JSON");
+  });
+  it("uses Render's assigned public URL when APP_ORIGIN is not set", () => {
+    const appOriginBefore = process.env.APP_ORIGIN;
+    const renderOriginBefore = process.env.RENDER_EXTERNAL_URL;
+    process.env.APP_ORIGIN = "";
+    process.env.RENDER_EXTERNAL_URL = "https://karmayogi-nexus.onrender.com/path";
+    try {
+      expect(appOrigin()).toBe("https://karmayogi-nexus.onrender.com");
+      expect(() =>
+        originCheck(
+          new Request("https://karmayogi-nexus.onrender.com/api/labs", {
+            headers: { origin: "https://karmayogi-nexus.onrender.com" },
+          }),
+        ),
+      ).not.toThrow();
+    } finally {
+      if (appOriginBefore === undefined) delete process.env.APP_ORIGIN;
+      else process.env.APP_ORIGIN = appOriginBefore;
+      if (renderOriginBefore === undefined) delete process.env.RENDER_EXTERNAL_URL;
+      else process.env.RENDER_EXTERNAL_URL = renderOriginBefore;
+    }
   });
 });
