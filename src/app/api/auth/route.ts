@@ -33,6 +33,30 @@ export async function POST(req: Request) {
       return Response.json({ redirect: "/dashboard" });
     }
     if (action === "google") {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
+      if (!supabaseUrl || !publishableKey)
+        throw new HttpError(503, "Google sign-in is not configured.");
+      const settingsResponse = await fetch(
+        new URL("/auth/v1/settings", supabaseUrl),
+        {
+          headers: { apikey: publishableKey },
+          cache: "no-store",
+        },
+      );
+      if (!settingsResponse.ok)
+        throw new HttpError(
+          503,
+          "Google sign-in setup could not be verified. Please try again later.",
+        );
+      const settings = (await settingsResponse.json()) as {
+        external?: { google?: boolean };
+      };
+      if (settings.external?.google !== true)
+        throw new HttpError(
+          503,
+          "Google sign-in is not enabled yet. Enable Google under Supabase Authentication providers.",
+        );
       const { data, error } = await db.auth.signInWithOAuth({
         provider: "google",
         options: { redirectTo: `${origin}/auth/callback` },
